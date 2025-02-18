@@ -3,7 +3,7 @@ import Button from "@/app/components/ui/partials/button"
 import Heading from "@/app/components/ui/partials/heading"
 import InputText from "@/app/components/ui/partials/inputText"
 import InputPassword from "./partials/inputPassword"
-import { UserGroupIcon } from '@heroicons/react/24/solid'
+import Logo from "./partials/logo"
 
 interface FormSignInProps {
     email: string
@@ -16,13 +16,13 @@ interface FormSignInProps {
 const FormSignIn = ({ email, setEmail, password, setPassword, onSubmit }: FormSignInProps) => {
     return (
         <div className="flex flex-col w-full">
+            <Logo />
             <div className="flex flex-row self-center items-end">
-                <UserGroupIcon />
                 <Heading text="NEXT" size="5xl" />
                 <Heading text="social" size="4xl" />
             </div>
             <div className="text-center mt-4">
-                Demo Authentication with <Link href="https://cloud.appwrite.io" target="_blank">appwrite</Link>.
+                Open Source Social Network.
             </div>
             <form className="grid gap-3 flex-col flex-wrap mt-5" onSubmit={onSubmit}>
                 <InputText

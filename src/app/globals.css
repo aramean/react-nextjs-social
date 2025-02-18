@@ -33,5 +33,5 @@ h3 {
 }
 
 a {
-  @apply text-black underline;
+  @apply text-violet-900 underline;
 }
