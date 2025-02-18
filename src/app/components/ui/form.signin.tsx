@@ -1,4 +1,3 @@
-import Link from "next/link"
 import Button from "@/app/components/ui/partials/button"
 import Heading from "@/app/components/ui/partials/heading"
 import InputText from "@/app/components/ui/partials/inputText"
