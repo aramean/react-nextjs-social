@@ -34,4 +34,9 @@ h3 {
 
 a {
   @apply text-violet-900 underline;
+  @apply font-semibold;
+}
+
+button{
+  @apply font-semibold;
 }
