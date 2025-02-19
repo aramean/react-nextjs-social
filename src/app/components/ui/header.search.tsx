@@ -5,7 +5,7 @@ const HeaderSearch = () => {
         value=""
         placeholder="Search on nextSocial"
         textSize="sm"
-        height={9}
+        height="sm"
     ></InputText></>)
 }
 
