@@ -7,10 +7,10 @@ interface InputTextProps {
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-const InputText = ({ value = '', placeholder = '', height = 11, textSize = 'md', widht = '', onChange }: InputTextProps) => {
+const InputText = ({ value = '', placeholder = '', height = 11, textSize = 'md', width = 'full', onChange }: InputTextProps) => {
     return (
         <input
-            className={`flex indent-3 border-2 border-spacing-1 rounded-md border-black shadow-md w-full h-${height} text-${textSize}`}
+            className={`flex indent-3 border-2 border-spacing-1 rounded-md border-black shadow-md w-${width} h-${height} text-${textSize}`}
             type="text"
             value={value}
             placeholder={placeholder}

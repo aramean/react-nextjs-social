@@ -3,7 +3,6 @@
 import HeaderStatus from "@/app/components/ui/header.status"
 import Logo from "@/app/components/ui/partials/logo"
 import HeaderSearch from "@/app/components/ui/header.search"
-import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { deleteAuthToken } from "@/util/cookies"
 
