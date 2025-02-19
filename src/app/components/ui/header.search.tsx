@@ -1,7 +1,12 @@
 import InputText from "./partials/inputText"
 
 const HeaderSearch = () => {
-    return (<div><InputText value="" placeholder="Search on nextSocial"></InputText></div>)
+    return (<><InputText
+        value=""
+        placeholder="Search on nextSocial"
+        textSize="sm"
+        height={9}
+    ></InputText></>)
 }
 
 export default HeaderSearch

@@ -1,6 +1,6 @@
 interface HeadingProps {
-    text: string;
-    size?: "sm" | "base" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl" | "8xl" | "9xl";
+    text: string
+    size?: "sm" | "base" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl" | "8xl" | "9xl"
 }
 
 const Heading = ({ text, size = "base" }: HeadingProps) => {
@@ -17,9 +17,9 @@ const Heading = ({ text, size = "base" }: HeadingProps) => {
         "7xl": "text-7xl",
         "8xl": "text-8xl",
         "9xl": "text-9xl",
-    }[size] || "text-base";
+    }[size] || "text-base"
 
-    return <h1 className={sizeClass}>{text}</h1>;
-};
+    return <h1 className={sizeClass}>{text}</h1>
+}
 
-export default Heading;
+export default Heading

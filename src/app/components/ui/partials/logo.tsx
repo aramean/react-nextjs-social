@@ -5,7 +5,7 @@ interface LogoProps {
 }
 
 const Logo = ({ size = "80%", color = '#726192' }: LogoProps) => {
-    return (<UserGroupIcon color={color} width={size} />)
+    return (<UserGroupIcon color={color} width={size} className=""/>)
 }
 
 export default Logo
