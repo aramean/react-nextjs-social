@@ -1,14 +1,15 @@
-import { ChatBubbleLeftIcon  } from "@heroicons/react/16/solid"
-
 interface BadgeProps {
-    size?: string
-    color?: string
-    showName?: boolean
+    number?: number
     children?: React.ReactNode;
 }
 
-const Badge = ({ size = "32px", color = '#000000', showName = false, children }: BadgeProps) => {
-    return (<>{children}</>)
+const Badge = ({ number = 0, children }: BadgeProps) => {
+    return (<div className="relative">
+        {number > 0 && (
+            <span className="absolute bg-red-700 size-5 text-center color-white">{number}</span>
+        )}
+        {children}
+    </div>)
 }
 
 export default Badge
