@@ -14,16 +14,16 @@ interface FormSignInProps {
 
 const FormSignIn = ({ email, setEmail, password, setPassword, onSubmit }: FormSignInProps) => {
     return (
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col w-full items-center">
             <Logo />
             <div className="flex flex-row self-center items-end">
-                <Heading text="NEXT" size="5xl" />
-                <Heading text="social" size="4xl" />
+                <Heading text="NEXT" size="4xl" />
+                <Heading text="social" size="3xl" />
             </div>
             <div className="text-center mt-4">
                 Open Source Social Network.
             </div>
-            <form className="grid gap-3 flex-col flex-wrap mt-5" onSubmit={onSubmit}>
+            <form className="grid gap-3 w-full size-auto mt-5" onSubmit={onSubmit}>
                 <InputText
                     placeholder="Email"
                     value={email}

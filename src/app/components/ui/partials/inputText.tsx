@@ -7,7 +7,7 @@ interface InputTextProps {
 const InputText = ({ value, placeholder, onChange }: InputTextProps) => {
     return (
         <input
-            className="flex indent-3 border-2 border-spacing-1 rounded-md border-black shadow-sm h-11"
+            className="flex indent-3 border-2 border-spacing-1 rounded-md border-black shadow-md h-11"
             type="text"
             value={value}
             placeholder={placeholder}

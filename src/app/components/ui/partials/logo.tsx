@@ -4,7 +4,7 @@ interface LogoProps {
     color?: string
 }
 
-const Logo = ({ size = "100%", color = '#726192' }: LogoProps) => {
+const Logo = ({ size = "80%", color = '#726192' }: LogoProps) => {
     return (<UserGroupIcon color={color} width={size} />)
 }
 
