@@ -24,6 +24,19 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+header + main {
+  @apply pt-16
+}
+
+main {
+  @apply bg-slate-50;
+
+  a {
+    @apply text-violet-900 underline;
+    @apply font-semibold;
+  }
+}
+
 h1 {
   @apply text-2xl;
 }
@@ -34,11 +47,6 @@ h2 {
 
 h3 {
   @apply text-lg;
-}
-
-a {
-  @apply text-violet-900 underline;
-  @apply font-semibold;
 }
 
 button {

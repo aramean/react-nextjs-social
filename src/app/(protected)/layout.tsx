@@ -12,8 +12,10 @@ export default async function ProtectedLayout({ children }: { children: React.Re
   }
 
   return (<>
-    <header className="flex items-center px-5 h-12 bg-black shadow-md">
-      <Link href="dashboard"><Logo color="#fff" size="30" /></Link>
+    <header className="flex bg-white border-b border-gray-200 gap-4 fixed top-0 inset-x-0 z-100 h-16 items-center px-4">
+      <Link href="dashboard">
+        <Logo color="#000000" size="30" />
+      </Link>
       <HeaderSearch />
       <HeaderStatus />
     </header>

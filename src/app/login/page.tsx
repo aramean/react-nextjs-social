@@ -34,7 +34,7 @@ export default function Login() {
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen">
-      <main className="flex flex-col gap-5 row-start-2 items-center sm:items-start min-w-80">
+      <main className="flex flex-col gap-5 row-start-2 items-center sm:items-start min-w-80 p-12 rounded-xl">
         <FormLogin
           email={email}
           setEmail={setEmail}
