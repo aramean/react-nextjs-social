@@ -15,7 +15,7 @@ const InputPassword = ({ value, height = 'md', placeholder = '', onChange }: Inp
 
     return (
         <input
-            className={`flex indent-3 border-2 border-spacing-1 rounded-md border-black shadow-sm ${heightClass}`}
+            className={`flex indent-3 border border-spacing-1 rounded-md border-black shadow-sm ${heightClass}`}
             type="password"
             value={value}
             placeholder={placeholder}

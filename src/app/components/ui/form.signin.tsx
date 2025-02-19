@@ -20,7 +20,7 @@ const FormSignIn = ({ email, setEmail, password, setPassword, onSubmit }: FormSi
                 <Heading text="NEXT" size="4xl" />
                 <Heading text="social" size="3xl" />
             </div>
-            <div className="text-center mt-4">
+            <div className="text-center mt-3">
                 Open Source Social Network.
             </div>
             <form className="grid gap-3 w-full size-auto mt-5" onSubmit={onSubmit}>

@@ -3,7 +3,7 @@ import TextArea from "./partials/inputTextArea"
 
 const FormShare = () => {
     return (<div>
-        <TextArea placeholder=""></TextArea>
+        <TextArea placeholder="" onChange={e => (e)}></TextArea>
         <Button value={"Post"} ></Button>
     </div>)
 }

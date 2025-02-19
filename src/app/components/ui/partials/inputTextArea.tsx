@@ -17,7 +17,7 @@ const InputTextArea = ({ value = '', placeholder = '', height = 'md', textSize =
 
     return (
         <input
-            className={`flex indent-3 border-2 border-spacing-1 rounded-md border-black shadow-md w-${width} ${heightClass} text-${textSize}`}
+            className={`flex indent-3 border border-spacing-1 rounded-md border-black shadow-md w-${width} ${heightClass} text-${textSize}`}
             type="text"
             value={value}
             placeholder={placeholder}

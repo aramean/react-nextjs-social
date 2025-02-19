@@ -6,7 +6,6 @@ import Card from "@/app/components/ui/partials/card";
 import FormShare from "@/app/components/ui/form.post";
 
 export default function Dashboard() {
-  const [feeds, setFeeds] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -16,16 +15,16 @@ export default function Dashboard() {
           "67a1f726001f51b0fb86",
           "67b6232e0015e5bf28bb"
         );
-        setFeeds(response.documents);
+        console.dir(response)
       } catch (error) {
-        console.error("Error fetching feeds:", error);
+        console.error("Error fetching feeds:", error)
       } finally {
-        setLoading(false);
+        setLoading(false)
       }
     }
 
     fetchFeeds();
-  }, []);
+  }, [])
 
 
   if (loading) return <p>Loading...</p>;
