@@ -1,8 +1,11 @@
 'use client'
 
-import { deleteAuthToken } from "@/util/cookies"
+import HeaderStatus from "@/app/components/ui/header.status"
+import Logo from "@/app/components/ui/partials/logo"
+import HeaderSearch from "@/app/components/ui/header.search"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
+import { deleteAuthToken } from "@/util/cookies"
 
 export default function Dashboard() {
     const router = useRouter()
@@ -10,11 +13,14 @@ export default function Dashboard() {
     const handleLogout = async () => {
         deleteAuthToken()
         router.push('/login')
-    };
+    }
 
     return (
         <div>
-            <header className="flex items-center justify-between px-5 h-12 bg-black">
+            <header className="flex justify-between items-center px-5 h-12 bg-black shadow-md">
+                <Logo color="#fff" size="40" />
+                <HeaderSearch />
+                <HeaderStatus />
                 <Link className="text-gray-50" href="/dashboard">Dashboard</Link>
                 <nav>
                     <button className="text-gray-50" onClick={handleLogout}>Logout →</button>
