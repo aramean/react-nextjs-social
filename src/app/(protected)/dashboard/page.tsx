@@ -17,11 +17,10 @@ export default function Dashboard() {
 
     return (
         <div>
-            <header className="flex justify-between items-center px-5 h-12 bg-black shadow-md">
-                <Logo color="#fff" size="40" />
+            <header className="flex items-center px-5 h-12 bg-black shadow-md">
+                <Logo color="#fff" size="30" />
                 <HeaderSearch />
                 <HeaderStatus />
-                <Link className="text-gray-50" href="/dashboard">Dashboard</Link>
                 <nav>
                     <button className="text-gray-50" onClick={handleLogout}>Logout →</button>
                 </nav>
