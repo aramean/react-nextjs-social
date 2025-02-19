@@ -18,16 +18,16 @@ const HeaderStatus = () => {
         <div className="flex gap-2">
             <Badge>
                 <Link href="/friends">
-                    <UserIcon className="rounded-full border-b border-gray-200 p-2 ml-2" width={40} />
+                    <UserIcon className="rounded-full border-b border-gray-200 text-white p-2 ml-2" width={40} />
                 </Link>
             </Badge>
             <Badge>
                 <Link href="/messages">
-                    <ChatBubbleLeftIcon className="rounded-full border-b border-gray-200 p-2" width={40} />
+                    <ChatBubbleLeftIcon className="rounded-full border-b border-gray-200 text-white p-2" width={40} />
                 </Link>
             </Badge>
             <Badge>
-                <BellIcon className="rounded-full border-b border-gray-200 p-2" width={40} />
+                <BellIcon className="rounded-full border-b border-gray-200 text-white p-2" width={40} />
             </Badge>
 
             <DropDown

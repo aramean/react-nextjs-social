@@ -4,7 +4,7 @@ interface InputTextAreaProps {
     height?: "sm" | "md" | "lg" | "xl"
     textSize?: string
     width?: string
-    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+    onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
 }
 
 const InputTextArea = ({ value = '', placeholder = '', height = 'md', textSize = 'md', width = 'full', onChange }: InputTextAreaProps) => {
@@ -16,14 +16,12 @@ const InputTextArea = ({ value = '', placeholder = '', height = 'md', textSize =
     }[height]
 
     return (
-        <input
+        <textarea
             className={`flex indent-3 border border-spacing-1 rounded-md border-black shadow-md w-${width} ${heightClass} text-${textSize}`}
-            type="text"
             value={value}
             placeholder={placeholder}
             onChange={onChange}>
-        </input>)
+        </textarea>)
 }
 
 export default InputTextArea
-
