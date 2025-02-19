@@ -1,8 +1,5 @@
 'use client'
 
-import HeaderStatus from "@/app/components/ui/header.status"
-import Logo from "@/app/components/ui/partials/logo"
-import HeaderSearch from "@/app/components/ui/header.search"
 import { useRouter } from "next/navigation"
 import { deleteAuthToken } from "@/util/cookies"
 
@@ -14,19 +11,11 @@ export default function Dashboard() {
         router.push('/login')
     }
 
-    return (
-        <div>
-            <header className="flex items-center px-5 h-12 bg-black shadow-md">
-                <Logo color="#fff" size="30" />
-                <HeaderSearch />
-                <HeaderStatus />
-                <nav>
-                    <button className="text-gray-50" onClick={handleLogout}>Logout →</button>
-                </nav>
-            </header>
-            <main className="p-10">
-                <h2>Welcome</h2>
-            </main>
-        </div>
+    return (<>
+        <nav>
+            <button className="text-gray-50" onClick={handleLogout}>Logout →</button>
+        </nav>
+        <h2>Welcome</h2>
+    </>
     )
 }

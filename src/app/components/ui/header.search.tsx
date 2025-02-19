@@ -1,3 +1,5 @@
+'use client'
+
 import InputText from "./partials/inputText"
 
 const HeaderSearch = () => {
