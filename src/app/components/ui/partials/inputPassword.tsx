@@ -3,7 +3,7 @@ interface InputPasswordProps {
     placeholder?: string
     height?: "sm" | "md" | "lg" | "xl"
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
-}
+};
 
 const InputPassword = ({ value, height = 'md', placeholder = '', onChange }: InputPasswordProps) => {
     const heightClass = {
@@ -11,7 +11,7 @@ const InputPassword = ({ value, height = 'md', placeholder = '', onChange }: Inp
         md: "h-10",
         lg: "h-11",
         xl: "h-12",
-    }[height]
+    }[height];
 
     return (
         <input
@@ -21,7 +21,7 @@ const InputPassword = ({ value, height = 'md', placeholder = '', onChange }: Inp
             placeholder={placeholder}
             onChange={onChange}>
         </input>)
-}
+};
 
-export default InputPassword
+export default InputPassword;
 

@@ -1,21 +1,21 @@
 'use client'
 
-import { useState } from "react"
+import { useState } from "react";
 
 interface Option {
     label: string
     value: string
-}
+};
 
 interface DropDownProps {
     options: Option[]
     buttonIcon?: boolean
     buttonLabel?: string
     onSelect?: (option: Option) => void
-}
+};
 
 const DropDown = ({ options, buttonIcon = false, buttonLabel = "Options", onSelect }: DropDownProps) => {
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <div className="relative inline-block text-left">
@@ -46,7 +46,7 @@ const DropDown = ({ options, buttonIcon = false, buttonLabel = "Options", onSele
                 </div>
             )}
         </div>
-    )
-}
+    );
+};
 
-export default DropDown
+export default DropDown;

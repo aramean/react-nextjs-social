@@ -1,18 +1,18 @@
 'use client'
-import { useRouter } from "next/navigation"
-import { ChatBubbleLeftIcon, UserIcon, BellIcon } from "@heroicons/react/24/solid"
-import Badge from "./partials/badge"
-import Link from "next/link"
-import DropDown from "./partials/dropdown"
-import { deleteAuthToken } from "@/util/cookies"
+import { useRouter } from "next/navigation";
+import { ChatBubbleLeftIcon, UserIcon, BellIcon } from "@heroicons/react/24/solid";
+import Badge from "./partials/badge";
+import Link from "next/link";
+import DropDown from "./partials/dropdown";
+import { deleteAuthToken } from "@/util/cookies";
 
 const HeaderStatus = () => {
-    const router = useRouter()
+    const router = useRouter();
 
     const handleLogout = async () => {
-        deleteAuthToken()
-        router.push('/login')
-    }
+        deleteAuthToken();
+        router.push('/login');
+    };
 
     return (
         <div className="flex gap-2">
@@ -47,6 +47,6 @@ const HeaderStatus = () => {
             />
         </div>
     )
-}
+};
 
-export default HeaderStatus
+export default HeaderStatus;

@@ -1,8 +1,8 @@
-import Button from "@/app/components/ui/partials/button"
-import Heading from "@/app/components/ui/partials/heading"
-import InputText from "@/app/components/ui/partials/inputText"
-import InputPassword from "@/app/components/ui/partials/inputPassword"
-import LinkSignIn from "./link.signin"
+import Button from "@/app/components/ui/partials/button";
+import Heading from "@/app/components/ui/partials/heading";
+import InputText from "@/app/components/ui/partials/inputText";
+import InputPassword from "@/app/components/ui/partials/inputPassword";
+import LinkSignIn from "./link.signin";
 
 interface FormSignUpProps {
     name: string
@@ -49,7 +49,7 @@ const FormSignUp = ({ name, setName, email, setEmail, password, setPassword, pas
                 />
                 <Button value="Sign up" />
             </form>
-        </div>)
+        </div>);
 };
 
-export default FormSignUp
+export default FormSignUp;

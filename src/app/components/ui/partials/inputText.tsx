@@ -13,7 +13,7 @@ const InputText = ({ value = '', placeholder = '', height = 'md', textSize = 'md
         md: "h-10",
         lg: "h-11",
         xl: "h-12",
-    }[height]
+    }[height];
 
     return (
         <input
@@ -22,8 +22,8 @@ const InputText = ({ value = '', placeholder = '', height = 'md', textSize = 'md
             value={value}
             placeholder={placeholder}
             onChange={onChange}>
-        </input>)
+        </input>);
 }
 
-export default InputText
+export default InputText;
 

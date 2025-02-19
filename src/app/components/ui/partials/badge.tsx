@@ -1,7 +1,7 @@
 interface BadgeProps {
     number?: number
     children?: React.ReactNode
-}
+};
 
 const Badge = ({ number = 0, children }: BadgeProps) => {
     return (<div className="relative">
@@ -10,6 +10,6 @@ const Badge = ({ number = 0, children }: BadgeProps) => {
         )}
         {children}
     </div>)
-}
+};
 
-export default Badge
+export default Badge;

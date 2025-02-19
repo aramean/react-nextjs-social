@@ -1,6 +1,6 @@
 'use client'
 
-import InputText from "./partials/inputText"
+import InputText from "./partials/inputText";
 
 const HeaderSearch = () => {
     return (<><InputText
@@ -11,4 +11,4 @@ const HeaderSearch = () => {
     ></InputText></>)
 }
 
-export default HeaderSearch
+export default HeaderSearch;

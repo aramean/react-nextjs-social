@@ -1,8 +1,8 @@
-import Button from "@/app/components/ui/partials/button"
-import Heading from "@/app/components/ui/partials/heading"
-import InputText from "@/app/components/ui/partials/inputText"
-import InputPassword from "./partials/inputPassword"
-import Logo from "./partials/logo"
+import Button from "@/app/components/ui/partials/button";
+import Heading from "@/app/components/ui/partials/heading";
+import InputText from "@/app/components/ui/partials/inputText";
+import InputPassword from "./partials/inputPassword";
+import Logo from "./partials/logo";
 
 interface FormSignInProps {
     email: string
@@ -10,7 +10,7 @@ interface FormSignInProps {
     password: string
     setPassword: React.Dispatch<React.SetStateAction<string>>
     onSubmit: (event: React.FormEvent) => void
-}
+};
 
 const FormSignIn = ({ email, setEmail, password, setPassword, onSubmit }: FormSignInProps) => {
     return (
@@ -36,7 +36,7 @@ const FormSignIn = ({ email, setEmail, password, setPassword, onSubmit }: FormSi
                 />
                 <Button value="Sign in" />
             </form>
-        </div>)
+        </div>);
 };
 
-export default FormSignIn
+export default FormSignIn;
