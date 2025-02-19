@@ -20,8 +20,8 @@ const FormSignUp = ({ name, setName, email, setEmail, password, setPassword, pas
     return (
         <div className="flex flex-col w-full">
             <div className="flex flex-row self-center items-end">
-                <Heading text="NEXT" size="6xl" />
-                <Heading text=".js" size="4xl" />
+                <Heading text="NEXT" size="4xl" />
+                <Heading text="social" size="3xl" />
             </div>
             <div className="text-center mt-4">
                 <LinkSignIn />
