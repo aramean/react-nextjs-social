@@ -14,10 +14,11 @@ interface FormSignUpProps {
     setPassword: React.Dispatch<React.SetStateAction<string>>
     password2: string
     setPassword2: React.Dispatch<React.SetStateAction<string>>    
+    isSubmit: boolean
     onSubmit: (event: React.FormEvent) => void
 }
 
-const FormSignUp = ({ name, setName, email, setEmail, password, setPassword, password2, setPassword2, onSubmit }: FormSignUpProps) => {
+const FormSignUp = ({ name, setName, email, setEmail, password, setPassword, password2, setPassword2, isSubmit, onSubmit }: FormSignUpProps) => {
     return (
         <div className="flex flex-col w-full">
             <div className="flex flex-row self-center items-end">
@@ -49,7 +50,7 @@ const FormSignUp = ({ name, setName, email, setEmail, password, setPassword, pas
                     onChange={(e) => setPassword2(e.target.value)}
                 />
                 <CheckBox></CheckBox>
-                <Button value="Sign up" />
+                <Button value="Sign up" disabled={isSubmit}/>
             </form>
         </div>);
 };

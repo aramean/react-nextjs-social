@@ -9,25 +9,29 @@ export default function SignupPage() {
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
   const [name, setName] = useState("");
-
+  const [isSubmit, setIsSubmit] = useState<boolean>(false)
   const router = useRouter();
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
-    const response = await fetch('api/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, password, name }),
-    });
+    try {
+      const response = await fetch('api/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password, name }),
+      });
 
-    if (response.ok) {
-      console.log("Account created successfully");
-      router.push('login');
-    } else {
-      console.log("Login failed");
+      if (response.ok) {
+        console.log("Account created successfully");
+        router.push('login');
+      } else {
+        console.log("Login failed");
+      }
+    } finally {
+      setIsSubmit(false);
     }
   };
 
@@ -43,6 +47,7 @@ export default function SignupPage() {
           setPassword={setPassword}
           password2={password2}
           setPassword2={setPassword2}
+          isSubmit={isSubmit}
           onSubmit={handleSubmit}
         />
       </main>
