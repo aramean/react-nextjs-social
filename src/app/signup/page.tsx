@@ -13,6 +13,7 @@ export default function SignupPage() {
   const router = useRouter();
 
   const handleSubmit = async (event: React.FormEvent) => {
+    setIsSubmit(true);
     event.preventDefault();
 
     try {
