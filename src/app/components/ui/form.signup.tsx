@@ -3,6 +3,7 @@ import Heading from "@/app/components/ui/partials/heading";
 import InputText from "@/app/components/ui/partials/inputText";
 import InputPassword from "@/app/components/ui/partials/inputPassword";
 import LinkSignIn from "./link.signin";
+import CheckBox from "./partials/checkbox";
 
 interface FormSignUpProps {
     name: string
@@ -47,6 +48,7 @@ const FormSignUp = ({ name, setName, email, setEmail, password, setPassword, pas
                     value={password2}
                     onChange={(e) => setPassword2(e.target.value)}
                 />
+                <CheckBox></CheckBox>
                 <Button value="Sign up" />
             </form>
         </div>);
