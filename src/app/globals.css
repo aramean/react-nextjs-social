@@ -32,8 +32,13 @@ main {
   @apply bg-slate-50;
 
   a {
-    @apply text-violet-900 underline;
+    @apply text-violet-900;
     @apply font-semibold;
+  
+    &:hover{
+      @apply underline;
+      @apply drop-shadow-sm;
+    }
   }
 }
 
