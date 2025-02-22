@@ -9,10 +9,11 @@ interface FormSignInProps {
     setEmail: React.Dispatch<React.SetStateAction<string>>
     password: string
     setPassword: React.Dispatch<React.SetStateAction<string>>
+    isSubmit: boolean
     onSubmit: (event: React.FormEvent) => void
 };
 
-const FormSignIn = ({ email, setEmail, password, setPassword, onSubmit }: FormSignInProps) => {
+const FormSignIn = ({ email, setEmail, password, setPassword, isSubmit, onSubmit }: FormSignInProps) => {
     return (
         <div className="flex flex-col w-full items-center">
             <Logo />
@@ -34,7 +35,7 @@ const FormSignIn = ({ email, setEmail, password, setPassword, onSubmit }: FormSi
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <Button value="Sign in" />
+                <Button value="Sign in" disabled={isSubmit} />
             </form>
         </div>);
 };

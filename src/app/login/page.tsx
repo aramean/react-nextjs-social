@@ -10,25 +10,31 @@ export default function Login() {
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [isSubmit, setIsSubmit] = useState<boolean>(false)
   const router = useRouter()
 
   const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault()
+    setIsSubmit(true);
+    event.preventDefault();
 
-    const response = await fetch('api/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ email, password })
-    })
-
-    if (response.ok) {
-      console.log("Login successful")
-      setAuthToken()
-      router.push('dashboard')
-    } else {
-      console.error("Login failed")
+    try {
+      const response = await fetch('api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+      })
+ 
+      if (response.ok) {
+        console.log("Login successful")
+        setAuthToken();
+        router.push('dashboard')
+      } else {
+        console.error("Login failed")
+      }
+    } finally {
+      setIsSubmit(false);
     }
   }
 
@@ -40,6 +46,7 @@ export default function Login() {
           setEmail={setEmail}
           password={password}
           setPassword={setPassword}
+          isSubmit={isSubmit}
           onSubmit={handleSubmit}
         />
         <LinkSignup />
