@@ -6,6 +6,7 @@ import LinkSignIn from "./link.signin";
 import CheckBox from "./partials/checkbox";
 import Hr from "./partials/hr";
 import Logo from "./partials/logo";
+import Alert from "./partials/alert";
 
 interface FormSignUpProps {
     name: string
@@ -18,9 +19,15 @@ interface FormSignUpProps {
     setPassword2: React.Dispatch<React.SetStateAction<string>>
     isSubmit: boolean
     onSubmit: (event: React.FormEvent) => void
+    formErrors?: {
+        name?: string;
+        email?: string;
+        password?: string;
+    };
+    apiError?: string
 }
 
-const FormSignUp = ({ name, setName, email, setEmail, password, setPassword, password2, setPassword2, isSubmit, onSubmit }: FormSignUpProps) => {
+const FormSignUp = ({ name, setName, email, setEmail, password, setPassword, password2, setPassword2, isSubmit, onSubmit, formErrors, apiError }: FormSignUpProps) => {
     return (
         <div className="flex flex-col w-full">
             <div className="flex flex-row self-center items-end">
@@ -31,17 +38,20 @@ const FormSignUp = ({ name, setName, email, setEmail, password, setPassword, pas
             <div className="text-center mt-4">
                 <LinkSignIn />
             </div>
+            {apiError && <Alert message={apiError} />}
             <form className="grid gap-3 flex-col flex-wrap mt-5" onSubmit={onSubmit}>
                 <InputText
                     placeholder="Name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                 />
+                {formErrors?.name && <small className="text-red-500">{formErrors.name}</small>}
                 <InputText
                     placeholder="Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
+                {formErrors?.email && <small className="text-red-500">{formErrors.email}</small>}
                 <InputPassword
                     placeholder="Password"
                     value={password}
