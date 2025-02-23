@@ -4,6 +4,8 @@ import InputText from "@/app/components/ui/partials/inputText";
 import InputPassword from "@/app/components/ui/partials/inputPassword";
 import LinkSignIn from "./link.signin";
 import CheckBox from "./partials/checkbox";
+import Hr from "./partials/hr";
+import Logo from "./partials/logo";
 
 interface FormSignUpProps {
     name: string
@@ -13,7 +15,7 @@ interface FormSignUpProps {
     password: string
     setPassword: React.Dispatch<React.SetStateAction<string>>
     password2: string
-    setPassword2: React.Dispatch<React.SetStateAction<string>>    
+    setPassword2: React.Dispatch<React.SetStateAction<string>>
     isSubmit: boolean
     onSubmit: (event: React.FormEvent) => void
 }
@@ -22,6 +24,7 @@ const FormSignUp = ({ name, setName, email, setEmail, password, setPassword, pas
     return (
         <div className="flex flex-col w-full">
             <div className="flex flex-row self-center items-end">
+                <Logo size="45" />
                 <Heading text="NEXT" size="4xl" />
                 <Heading text="social" size="3xl" />
             </div>
@@ -49,8 +52,12 @@ const FormSignUp = ({ name, setName, email, setEmail, password, setPassword, pas
                     value={password2}
                     onChange={(e) => setPassword2(e.target.value)}
                 />
-                <CheckBox></CheckBox>
-                <Button value="Sign up" disabled={isSubmit}/>
+                <Hr></Hr>
+                <CheckBox onChange={(e) => (e.target.value)} checked>
+                    <span className="text-base">I have read and agree to the <a target="_blank" href="terms_of_service.md">Terms of Service</a> and <a target="_blank" href="privacy_policy.md">Privacy Policy</a>.</span>
+                </CheckBox>
+                <Hr></Hr>
+                <Button value="Sign up" disabled={isSubmit} />
             </form>
         </div>);
 };
