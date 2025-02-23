@@ -69,7 +69,7 @@ export default function SignupPage() {
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen">
-      <main className="flex flex-col gap-5 row-start-2 sm:w-96 md:w-full max-w-md items-center p-12 rounded-xl shadow-lg">
+      <main className="flex flex-col gap-5 row-start-2 bg-slate-50 sm:w-96 md:w-full max-w-md items-center p-12 rounded-xl shadow-lg">
         <FormSignup
           name={name}
           setName={setName}

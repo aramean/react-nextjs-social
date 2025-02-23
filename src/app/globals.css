@@ -29,8 +29,6 @@ header + main {
 }
 
 main {
-  @apply bg-slate-50;
-
   a {
     @apply text-violet-900;
     @apply font-semibold;
