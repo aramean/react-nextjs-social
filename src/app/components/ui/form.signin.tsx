@@ -44,6 +44,7 @@ const FormSignIn = ({ email, setEmail, password, setPassword, isSubmit, onSubmit
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
+                 {formErrors?.password && <small className="text-red-500">{formErrors.password}</small>}
                 <Br />
                 <Button value="Sign in" disabled={isSubmit} />
             </form>
