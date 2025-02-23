@@ -3,6 +3,7 @@ import Heading from "@/app/components/ui/partials/heading";
 import InputText from "@/app/components/ui/partials/inputText";
 import InputPassword from "./partials/inputPassword";
 import Logo from "./partials/logo";
+import Br from "./partials/br";
 
 interface FormSignInProps {
     email: string
@@ -35,6 +36,7 @@ const FormSignIn = ({ email, setEmail, password, setPassword, isSubmit, onSubmit
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
+                <Br />
                 <Button value="Sign in" disabled={isSubmit} />
             </form>
         </div>);

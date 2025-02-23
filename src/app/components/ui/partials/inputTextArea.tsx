@@ -17,7 +17,7 @@ const InputTextArea = ({ value = '', placeholder = '', height = 'md', textSize =
 
     return (
         <textarea
-            className={`flex p-3 border border-spacing-1 rounded-md border-black shadow-md w-${width} ${heightClass} text-${textSize}`}
+            className={`flex p-3 border border-spacing-1 rounded-md border-black shadow-sm w-${width} ${heightClass} text-${textSize}`}
             value={value}
             placeholder={placeholder}
             onChange={onChange}>
