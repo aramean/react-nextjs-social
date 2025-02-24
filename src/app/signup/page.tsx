@@ -65,6 +65,7 @@ export default function SignupPage() {
     } finally {
       setIsSubmit(false);
     }
+    return;
   };
 
   return (
