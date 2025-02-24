@@ -11,7 +11,7 @@ export async function GET() {
     }
 }
 
-export async function POST(request: Request) {
+export async function POST() {
     try {
         const session = await databases.createDocument(database, '67b5d98900395c75f665',
             ID.unique(),
