@@ -20,7 +20,7 @@ export function useFeeds() {
 
         const feedItems: FeedItem[] = response?.documents?.map((item) => ({
           message: item.message,
-          created: item.created,
+          created: item.$createdAt
         }));
 
         setData(feedItems);
