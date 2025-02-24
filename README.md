@@ -1,7 +1,8 @@
-# Auth with Appwrite
+# NEXTsocial
+Open Source Social Network.
 
 ## Demo
-https://aramean-appwrite-auth.vercel.app
+[https://aramean-appwrite-auth.vercel.app](https://aramean-nextsocial.vercel.app/)
 
 ## Development
 
@@ -36,4 +37,5 @@ To learn more about Next.js, take a look at the following resources:
 
 ### Installed packages
 ```npm install appwrite```
+```npm install zod```
 ```npm install @next/env```
