@@ -17,17 +17,17 @@ const Card = ({ picture = '', title = '', text = '', createdAt }: CardProps) => 
       />
     )}
     <div className="border-r border-b border-l border-gray-200 lg:border-l-0 lg:border-t lg:border-gray-100 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal shadow-sm mt-6">
-    <div className="flex items-center">
-        <UserIcon className="w-10 h-10 rounded-full mr-4" width={20} height={0} />
-        <div className="text-sm">
+      <div className="flex items-center">
+        <UserIcon className="w-10 h-10 mr-2 mb-3 p-1 rounded-full bg-slate-200 text-white" width={20} height={0} />
+        <div className="text-sm flex flex-col">
           <p className="text-gray-900 leading-none">Josef Gabrielsson</p>
-          <p className="text-gray-600">{createdAt}</p>
+          <p className="text-gray-600 text-xs">{createdAt}</p>
         </div>
+        <p className="text-sm text-gray-600 flex items-center">
+          <LockClosedIcon width="12" className='mr-1' />
+        </p>
       </div>
       <div className="mb-8">
-        <p className="text-sm text-gray-600 flex items-center">
-          <LockClosedIcon width="12" className='mr-1' /> Members only
-        </p>
         {title && (<div className="text-gray-900 font-bold text-xl mb-2">Title??</div>)}
         <p className="text-gray-700 text-base">{text}</p>
       </div>
