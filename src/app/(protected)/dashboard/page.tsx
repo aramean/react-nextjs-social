@@ -4,6 +4,7 @@ import { useState } from "react";
 import Card from "@/app/components/ui/partials/card";
 import FormShare from "@/app/components/ui/form.post";
 import { useFeeds } from "@/hooks/useFeeds";
+import { formatTimeAgo } from "@/util/date";
 
 export default function Dashboard() {
   const { loading, data } = useFeeds();
@@ -44,7 +45,7 @@ export default function Dashboard() {
       <div className="w-2/4 bg-white p-4">
         <FormShare onSubmit={handleSubmit} apiError={apiError} />
         {data.map((item, key) => (
-          <Card key={key} text={item.message} />
+          <Card key={key} text={item.message} createdAt={formatTimeAgo(item.created)} />
         ))}
       </div>
 

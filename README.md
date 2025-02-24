@@ -39,3 +39,4 @@ To learn more about Next.js, take a look at the following resources:
 ```npm install appwrite```
 ```npm install zod```
 ```npm install @next/env```
+```npm install date-fns```
