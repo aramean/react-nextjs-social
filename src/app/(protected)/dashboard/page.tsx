@@ -5,6 +5,7 @@ import Card from "@/app/components/ui/partials/card"
 import FormFeed from "@/app/components/ui/form.feed"
 import { useFeed } from "@/hooks/useFeed"
 import { formatTimeAgo } from "@/util/date"
+import ApiFetch from "@/lib/apiFetch"
 
 export default function Dashboard() {
   const [message, setMessage] = useState("")
@@ -16,13 +17,7 @@ export default function Dashboard() {
     setApiError("")
 
     try {
-      const response = await fetch("api/feed", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ "message": message })
-      })
+      const response = await ApiFetch("POST", "feed", { "message": message })
 
       if (response.ok) {
       } else {
