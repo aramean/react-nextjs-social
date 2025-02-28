@@ -1,11 +1,11 @@
-'use client'
+"use client"
 
-import { useState } from "react";
-import { useRouter } from 'next/navigation'
-import { setAuthToken } from "@/util/cookies";
-import FormLogin from "@/app/components/ui/form.signin";
-import LinkSignup from "@/app/components/ui/link.signup";
-import { z } from "zod";
+import { useState } from "react"
+import { useRouter } from "next/navigation"
+import { setAuthToken } from "@/util/cookies"
+import FormLogin from "@/app/components/ui/form.signin"
+import LinkSignup from "@/app/components/ui/link.signup"
+import { z } from "zod"
 
 const signInSchema = z.object({
   email: z
@@ -15,56 +15,56 @@ const signInSchema = z.object({
   password: z
     .string()
     .min(6, "Password must be at least 6 characters")
-    .nonempty("Password is required"),
-});
+    .nonempty("Password is required")
+})
 
 export default function Login() {
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [isSubmit, setIsSubmit] = useState<boolean>(false)
-  const [formErrors, setFormErrors] = useState<{ email?: string; password?: string }>({});
-  const [apiError, setApiError] = useState<string>("");
+  const [formErrors, setFormErrors] = useState<{ email?: string; password?: string }>({})
+  const [apiError, setApiError] = useState<string>("")
   const router = useRouter()
 
   const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
-    setIsSubmit(true);
-    setFormErrors({});
-    setApiError("");
+    event.preventDefault()
+    setIsSubmit(true)
+    setFormErrors({})
+    setApiError("")
 
-    const result = signInSchema.safeParse({ email, password });
+    const result = signInSchema.safeParse({ email, password })
 
     if (!result.success) {
       const validationErrors = result.error.errors.reduce(
         (acc, { path, message }) => ({ ...acc, [path[0]]: message }),
         {}
-      );
-      setFormErrors(validationErrors);
-      setIsSubmit(false);
-      return;
+      )
+      setFormErrors(validationErrors)
+      setIsSubmit(false)
+      return
     }
 
     try {
-      const response = await fetch('api/login', {
-        method: 'POST',
+      const response = await fetch("api/login", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({ email, password })
       })
 
       if (response.ok) {
-        setAuthToken();
-        router.push('dashboard');
+        setAuthToken()
+        router.push("dashboard")
       } else {
-        const message = await response.json();
-        setApiError(message.response.message);
+        const message = await response.json()
+        setApiError(message.response.message)
       }
     } finally {
-      setIsSubmit(false);
+      setIsSubmit(false)
     }
-    return;
+    return
   }
 
   return (

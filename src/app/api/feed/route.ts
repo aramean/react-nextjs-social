@@ -1,24 +1,24 @@
-import { databases, ID } from '@/lib/appwrite'
+import { databases, ID } from "@/lib/appwrite"
 
-const database = '67a1f726001f51b0fb86'; // posts
+const database = "67a1f726001f51b0fb86" // posts
 
 export async function GET() {
-    try {
-        const session = await databases.listDocuments(database, '67b6232e0015e5bf28bb')
-        console.dir(session)
-    } catch (e) {
-        console.error(e)
-    }
+  try {
+    const session = await databases.listDocuments(database, "67b6232e0015e5bf28bb")
+    console.dir(session)
+  } catch (e) {
+    console.error(e)
+  }
 }
 
 export async function POST() {
-    try {
-        const session = await databases.createDocument(database, '67b5d98900395c75f665',
-            ID.unique(),
-            { "message": "Yeahhhhh!" }
-        )
-        return Response.json({ session })
-    } catch (error) {
-        return Response.json(error, { status: 500 });
-    }
+  try {
+    const session = await databases.createDocument(database, "67b5d98900395c75f665",
+      ID.unique(),
+      { "message": "Yeahhhhh!" }
+    )
+    return Response.json({ session })
+  } catch (error) {
+    return Response.json(error, { status: 500 })
+  }
 }

@@ -1,4 +1,4 @@
-import { UserIcon, LockClosedIcon } from '@heroicons/react/16/solid';
+import { UserIcon, LockClosedIcon } from "@heroicons/react/16/solid"
 
 interface CardProps {
   picture?: string
@@ -7,7 +7,7 @@ interface CardProps {
   createdAt?: string
 };
 
-const Card = ({ picture = '', title = '', text = '', createdAt }: CardProps) => {
+const Card = ({ picture = "", title = "", text = "", createdAt }: CardProps) => {
   return (<div className="max-w-sm w-full lg:max-w-full lg:flex">
     {picture && (
       <div
@@ -32,7 +32,7 @@ const Card = ({ picture = '', title = '', text = '', createdAt }: CardProps) => 
         <p className="text-gray-700 text-base">{text}</p>
       </div>
     </div>
-  </div>);
-};
+  </div>)
+}
 
-export default Card;
+export default Card

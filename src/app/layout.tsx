@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import type { Metadata } from "next"
+import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "nextSocial",
-};
+  title: "nextSocial"
+}
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
@@ -16,5 +16,5 @@ export default function RootLayout({
         {children}
       </body>
     </html>
-  );
-};
+  )
+}

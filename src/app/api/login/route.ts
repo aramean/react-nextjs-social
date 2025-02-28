@@ -1,4 +1,4 @@
-import { account } from '@/lib/appwrite'
+import { account } from "@/lib/appwrite"
 
 interface Payload {
   email: string
@@ -7,12 +7,12 @@ interface Payload {
 
 export async function POST(request: Request) {
   // Parse the request body
-  const { email, password }: Payload = await request.json();
+  const { email, password }: Payload = await request.json()
 
   try {
     const session = await account.createEmailPasswordSession(email, password)
     return Response.json({ session })
   } catch (error) {
-    return Response.json(error, { status: 500 });
+    return Response.json(error, { status: 500 })
   }
 }

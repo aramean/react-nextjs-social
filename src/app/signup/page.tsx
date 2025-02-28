@@ -1,19 +1,19 @@
-'use client'
+"use client"
 
-import { useState } from "react";
-import { useRouter } from 'next/navigation'
-import FormSignup from "@/app/components/ui/form.signup";
-import { z } from "zod";
+import { useState } from "react"
+import { useRouter } from "next/navigation"
+import FormSignup from "@/app/components/ui/form.signup"
+import { z } from "zod"
 
 export default function SignupPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [password2, setPassword2] = useState("");
-  const [name, setName] = useState("");
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [password2, setPassword2] = useState("")
+  const [name, setName] = useState("")
   const [isSubmit, setIsSubmit] = useState<boolean>(false)
-  const [formErrors, setFormErrors] = useState<{ email?: string; password?: string }>({});
-  const [apiError, setApiError] = useState<string>("");
-  const router = useRouter();
+  const [formErrors, setFormErrors] = useState<{ email?: string; password?: string }>({})
+  const [apiError, setApiError] = useState<string>("")
+  const router = useRouter()
 
   const signInSchema = z.object({
     name: z
@@ -26,47 +26,47 @@ export default function SignupPage() {
     password: z
       .string()
       .min(6, "Password must be at least 6 characters")
-      .nonempty("Password is required"),
-  });
+      .nonempty("Password is required")
+  })
 
   const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
-    setIsSubmit(true);
-    setFormErrors({});
-    setApiError("");
+    event.preventDefault()
+    setIsSubmit(true)
+    setFormErrors({})
+    setApiError("")
 
-    const result = signInSchema.safeParse({ name, email, password });
+    const result = signInSchema.safeParse({ name, email, password })
 
     if (!result.success) {
       const validationErrors = result.error.errors.reduce(
         (acc, { path, message }) => ({ ...acc, [path[0]]: message }),
         {}
-      );
-      setFormErrors(validationErrors);
-      setIsSubmit(false);
-      return;
+      )
+      setFormErrors(validationErrors)
+      setIsSubmit(false)
+      return
     }
 
     try {
-      const response = await fetch('api/signup', {
-        method: 'POST',
+      const response = await fetch("api/signup", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json"
         },
-        body: JSON.stringify({ email, password, name }),
-      });
+        body: JSON.stringify({ email, password, name })
+      })
 
       if (response.ok) {
-        console.log("Account created successfully");
-        router.push('login');
+        console.log("Account created successfully")
+        router.push("login")
       } else {
-        console.log("Login failed");
+        console.log("Login failed")
       }
     } finally {
-      setIsSubmit(false);
+      setIsSubmit(false)
     }
-    return;
-  };
+    return
+  }
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen">
@@ -87,5 +87,5 @@ export default function SignupPage() {
         />
       </main>
     </div>
-  );
-};
+  )
+}
