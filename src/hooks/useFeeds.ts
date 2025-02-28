@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { databases } from "@/lib/appwrite"
+import { databases, Query } from "@/lib/appwrite"
 
 interface FeedItem {
   message: string
@@ -15,7 +15,10 @@ export function useFeeds() {
       try {
         const response = await databases.listDocuments(
           "67a1f726001f51b0fb86",
-          "67b5d98900395c75f665"
+          "67b5d98900395c75f665",
+          [
+            Query.orderDesc("$createdAt")
+          ]
         )
 
         const feedItems: FeedItem[] = response?.documents?.map((item) => ({
