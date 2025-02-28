@@ -10,12 +10,13 @@ import ApiFetch from "@/lib/apiFetch"
 export default function Dashboard() {
   const [message, setMessage] = useState("")
   const { loading, data } = useFeed()
+  const [isSubmit, setIsSubmit] = useState<boolean>(false)
   const [apiError, setApiError] = useState<string>("")
 
   const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault()
     setApiError("")
-
+    setIsSubmit(true)
+    event.preventDefault()
     try {
       const response = await ApiFetch("POST", "feed", { "message": message })
 
@@ -26,7 +27,7 @@ export default function Dashboard() {
         setApiError(message.response.message)
       }
     } finally {
-      //setIsSubmit(false);
+      setIsSubmit(false)
     }
     return
   }
@@ -43,6 +44,7 @@ export default function Dashboard() {
         <FormFeed
           message={message}
           setMessage={setMessage}
+          isSubmit={isSubmit}
           onSubmit={handleSubmit}
           apiError={apiError}
         />
