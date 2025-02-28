@@ -2,11 +2,12 @@
 
 import { useState } from "react"
 import Card from "@/app/components/ui/partials/card"
-import FormShare from "@/app/components/ui/form.post"
+import FormFeed from "@/app/components/ui/form.feed"
 import { useFeeds } from "@/hooks/useFeeds"
 import { formatTimeAgo } from "@/util/date"
 
 export default function Dashboard() {
+  const [message, setMessage] = useState("")
   const { loading, data } = useFeeds()
   const [apiError, setApiError] = useState<string>("")
 
@@ -20,7 +21,7 @@ export default function Dashboard() {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ "test": "test" })
+        body: JSON.stringify({ "message": message })
       })
 
       if (response.ok) {
@@ -43,7 +44,12 @@ export default function Dashboard() {
       </div>
 
       <div className="w-2/4 bg-white p-4">
-        <FormShare onSubmit={handleSubmit} apiError={apiError} />
+        <FormFeed
+          message={message}
+          setMessage={setMessage}
+          onSubmit={handleSubmit}
+          apiError={apiError}
+        />
         {data.map((item, key) => (
           <Card key={key} text={item.message} createdAt={formatTimeAgo(item.created)} />
         ))}

@@ -11,11 +11,18 @@ export async function GET() {
   }
 }
 
-export async function POST() {
+interface Payload {
+  message: string
+}
+
+export async function POST(request: Request) {  
+  // Parse the request body
+  const { message }: Payload = await request.json()
+
   try {
     const session = await databases.createDocument(database, "67b5d98900395c75f665",
       ID.unique(),
-      { "message": "Yeahhhhh!" }
+      { "message": message }
     )
     return Response.json({ session })
   } catch (error) {
