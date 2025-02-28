@@ -6,7 +6,7 @@ interface FeedItem {
   created: string
 }
 
-export function useFeeds() {
+export function useFeed() {
   const [data, setData] = useState<FeedItem[]>([])
   const [loading, setLoading] = useState(true)
 
