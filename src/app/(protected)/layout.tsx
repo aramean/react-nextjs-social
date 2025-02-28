@@ -19,6 +19,6 @@ export default async function ProtectedLayout({ children }: { children: React.Re
       <HeaderSearch />
       <HeaderStatus />
     </header>
-    <main className="bg-zinc-50">{children}</main>
+    <main className="bg-zinc-50 py-16">{children}</main>
   </>)
 }
