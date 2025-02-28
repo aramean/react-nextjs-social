@@ -20,6 +20,7 @@ export default function Dashboard() {
       const response = await ApiFetch("POST", "feed", { "message": message })
 
       if (response.ok) {
+        setMessage("")
       } else {
         const message = await response.json()
         setApiError(message.response.message)
