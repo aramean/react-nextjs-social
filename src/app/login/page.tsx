@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { setAuthToken } from "@/util/cookies"
+import ApiFetch from "@/lib/apiFetch"
 import FormLogin from "@/app/components/ui/form.signin"
 import LinkSignup from "@/app/components/ui/link.signup"
 import { z } from "zod"
@@ -46,13 +47,7 @@ export default function Login() {
     }
 
     try {
-      const response = await fetch("api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ email, password })
-      })
+      const response = await ApiFetch("POST", "login", { email, password })
 
       if (response.ok) {
         setAuthToken()
