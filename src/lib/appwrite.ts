@@ -1,8 +1,9 @@
 import { Client, Account, Databases, ID, Query } from "appwrite"
+import { ENDPOINT, PROJECT } from "@constants"
 
 const client = new Client()
-  .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT as string)
-  .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID as string)
+  .setEndpoint(ENDPOINT)
+  .setProject(PROJECT)
 
 const account = new Account(client)
 const databases = new Databases(client)

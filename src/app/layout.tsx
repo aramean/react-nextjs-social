@@ -1,8 +1,9 @@
 import type { Metadata } from "next"
-import "./globals.css"
+import { APP_TITLE } from "@constants"
+import "@css"
 
 export const metadata: Metadata = {
-  title: "nextSocial"
+  title: APP_TITLE
 }
 
 export default function RootLayout({
