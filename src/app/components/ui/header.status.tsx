@@ -4,7 +4,7 @@ import { ChatBubbleLeftIcon, UserIcon, BellIcon } from "@heroicons/react/24/soli
 import Badge from "./partials/badge"
 import Link from "next/link"
 import DropDown from "./partials/dropdown"
-import { deleteAuthToken } from "@/util/cookies"
+import { deleteAuthToken } from "@/utils/cookies"
 
 const HeaderStatus = () => {
   const router = useRouter()

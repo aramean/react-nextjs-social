@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { setAuthToken } from "@/util/cookies"
+import { setAuthToken } from "@/utils/cookies"
 import ApiFetch from "@/lib/apiFetch"
 import FormLogin from "@/app/components/ui/form.signin"
 import LinkSignup from "@/app/components/ui/link.signup"

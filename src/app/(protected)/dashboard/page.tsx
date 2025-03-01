@@ -4,7 +4,7 @@ import { useState } from "react"
 import Card from "@/app/components/ui/partials/card"
 import FormFeed from "@/app/components/ui/form.feed"
 import { useFeed } from "@/hooks/useFeed"
-import { formatTimeAgo } from "@/util/date"
+import { formatTimeAgo } from "@/utils/date"
 import ApiFetch from "@/lib/apiFetch"
 
 export default function Dashboard() {

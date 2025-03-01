@@ -1,4 +1,4 @@
-import { getAuthToken } from "@/util/cookies"
+import { getAuthToken } from "@/utils/cookies"
 import { redirect } from "next/navigation"
 import Link from "next/link"
 import Logo from "@components/ui/partials/logo"
