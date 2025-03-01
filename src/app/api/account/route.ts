@@ -4,7 +4,7 @@ interface Payload {
   name: string
 }
 
-export async function PATCH(request: Request) {  
+export async function PATCH(request: Request) {
   // Parse the request body
   const { name }: Payload = await request.json()
 

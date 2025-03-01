@@ -19,7 +19,8 @@ const eslintConfig = [
       "semi": ["error", "never", { "beforeStatementContinuationChars": "never" }],
       "comma-dangle": ["error", "never"],
       "multiline-ternary": ["error", "never"],
-      "operator-linebreak": ["error", "none"]
+      "operator-linebreak": ["error", "none"],
+      "keyword-spacing": ["error", { "before": true, "after": true }]
     },
     linterOptions: {
       reportUnusedDisableDirectives: "error"
