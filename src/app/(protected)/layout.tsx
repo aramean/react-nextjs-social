@@ -7,8 +7,8 @@ import Link from "next/link"
 
 export default async function ProtectedLayout({ children }: { children: React.ReactNode }) {
 
-  if (await getAuthToken() === null) {
-    redirect("/login")
+  if (!await getAuthToken()) {
+    return redirect("/login")
   }
 
   return (<>
