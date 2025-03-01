@@ -40,7 +40,7 @@ export default function Dashboard() {
         <p>Left Sidebar</p>
       </div>
 
-      <div className="w-2/4 bg-white p-4">
+      <div className="w-2/4 p-4">
         <FormFeed
           message={message}
           setMessage={setMessage}

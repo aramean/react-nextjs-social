@@ -1,6 +1,5 @@
 import Alert from "./partials/alert"
 import Button from "./partials/button"
-import Hr from "./partials/hr"
 import TextArea from "./partials/inputTextArea"
 
 interface FormFeedProps {
@@ -13,7 +12,7 @@ interface FormFeedProps {
 
 const FormFeed = ({ message, setMessage, isSubmit, onSubmit, apiError }: FormFeedProps) => {
   return (
-    <form onSubmit={onSubmit} className="flex flex-col">
+    <form onSubmit={onSubmit} className="flex flex-col bg-white border-r border-b border-l border-gray-300 lg:border-t lg:border-gray-200 rounded-b p-4 flex flex-col justify-between leading-normal shadow-sm  p-5">
       <fieldset className="flex flex-col gap-3" disabled={isSubmit}>
         <TextArea
           placeholder="Write a post..."
@@ -24,7 +23,6 @@ const FormFeed = ({ message, setMessage, isSubmit, onSubmit, apiError }: FormFee
         <Button value="Post" />
         {apiError && <Alert message={apiError} />}
       </fieldset>
-      <Hr/>
     </form>
   )
 }
