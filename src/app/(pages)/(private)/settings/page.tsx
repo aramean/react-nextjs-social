@@ -1,5 +1,6 @@
 "use client"
 
+import Sidebar from "@/components/partials/sidebar"
 import { useAccount } from "@/hooks/useAccount"
 
 export default function Settings() {
@@ -11,7 +12,13 @@ export default function Settings() {
   }
 
   return (<div className="flex">
-    <div className="w-2/5">Profile Information</div>
-    <div className="w-3/5"><button onClick={handleSubmit}>Save</button></div>
+    <div className="w-2/5">
+      <Sidebar />
+    </div>
+    <div className="w-3/5">
+      Profile information
+      
+      <button onClick={handleSubmit}>Save</button>
+    </div>
   </div>)
 }
