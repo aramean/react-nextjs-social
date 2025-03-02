@@ -1,4 +1,4 @@
-export const APP_TITLE = "Nextsocial"
+export const APP_TITLE = "NEXTsocial"
 
 export const KEY = process.env.NEXT_APPWRITE_KEY as string
 export const ENDPOINT = process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT as string
