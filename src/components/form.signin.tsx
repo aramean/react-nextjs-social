@@ -3,9 +3,9 @@ import { useLogin } from "@/hooks/useLogin"
 import Button from "@/components/partials/button"
 import Heading from "@/components/partials/heading"
 import InputText from "@/components/partials/inputText"
-import InputPassword from "./partials/inputPassword"
-import Logo from "./partials/logo"
-import Alert from "./partials/alert"
+import InputPassword from "@/components/partials/inputPassword"
+import Logo from "@/components/partials/logo"
+import Alert from "@/components/partials/alert"
 import { z } from "zod"
 
 interface FormSignInProps {

@@ -1,6 +1,6 @@
-import Alert from "./partials/alert"
-import Button from "./partials/button"
-import TextArea from "./partials/inputTextArea"
+import Alert from "@/components/partials/alert"
+import Button from "@/components/partials/button"
+import TextArea from "@/components/partials/inputTextArea"
 
 interface FormFeedProps {
   message: string

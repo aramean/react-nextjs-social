@@ -3,10 +3,10 @@ import Heading from "@/components/partials/heading"
 import InputText from "@/components/partials/inputText"
 import InputPassword from "@/components/partials/inputPassword"
 import LinkSignIn from "./link.signin"
-import CheckBox from "./partials/checkbox"
-import Hr from "./partials/hr"
-import Logo from "./partials/logo"
-import Alert from "./partials/alert"
+import CheckBox from "@/components/partials/checkbox"
+import Hr from "@/components/partials/hr"
+import Logo from "@/components/partials/logo"
+import Alert from "@/components/partials/alert"
 
 interface FormSignUpProps {
     name: string

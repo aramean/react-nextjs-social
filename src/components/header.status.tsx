@@ -3,9 +3,9 @@
 import { useRouter } from "next/navigation"
 import { useLogout } from "@/hooks/useLogout"
 import { ChatBubbleLeftIcon, UserIcon, BellIcon } from "@heroicons/react/24/solid"
-import Badge from "./partials/badge"
+import Badge from "@/components/partials/badge"
 import Link from "next/link"
-import DropDown from "./partials/dropdown"
+import DropDown from "@/components/partials/dropdown"
 //import { deleteAuthToken } from "@/utils/cookies"
 
 const HeaderStatus = () => {
