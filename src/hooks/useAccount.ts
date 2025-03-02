@@ -7,7 +7,7 @@ import { account } from "@/lib/appwrite"
 interface UseLoginResult {
   isLoading: boolean
   error: string | null
-  name: (name: string) => Promise<void>
+  updateName: (name: string) => Promise<void>
 }
 
 export function useAccount(): UseLoginResult {
@@ -15,7 +15,7 @@ export function useAccount(): UseLoginResult {
   const [error, setError] = useState<string | null>(null)
   const router = useRouter()
 
-  const name = async (name: string) => {
+  const updateName = async (name: string) => {
     setIsLoading(true)
     setError(null)
     try {
@@ -27,5 +27,5 @@ export function useAccount(): UseLoginResult {
     }
   }
 
-  return { isLoading, error, name }
+  return { isLoading, error, updateName }
 }

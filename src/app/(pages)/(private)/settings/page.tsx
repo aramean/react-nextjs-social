@@ -1,14 +1,13 @@
 "use client"
 
-import ApiFetch from "@/lib/apiFetch"
+import { useAccount } from "@/hooks/useAccount"
 
 export default function Settings() {
+  const { isLoading, error, updateName } = useAccount()
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
-    const response = await ApiFetch("PATCH", "account", { "name": name })
-    console.dir(response)
-    return
+    return await updateName("test")
   }
 
   return (<div className="flex">
