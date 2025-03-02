@@ -1,4 +1,6 @@
 import { useState } from "react"
+import Link from "next/link"
+import { z } from "zod"
 import { useLogin } from "@/hooks/useLogin"
 import Button from "@/components/partials/button"
 import Heading from "@/components/partials/heading"
@@ -6,7 +8,6 @@ import InputText from "@/components/partials/inputText"
 import InputPassword from "@/components/partials/inputPassword"
 import Logo from "@/components/partials/logo"
 import Alert from "@/components/partials/alert"
-import { z } from "zod"
 
 interface FormSignInProps {
   email: string
@@ -47,7 +48,7 @@ const FormSignIn = ({ email, setEmail, password, setPassword }: FormSignInProps)
     return await login(email, password)
   }
 
-  return (
+  return (<>
     <div className="flex flex-col w-full items-center">
       <Logo />
       <div className="flex flex-row self-center items-end">
@@ -73,7 +74,10 @@ const FormSignIn = ({ email, setEmail, password, setPassword }: FormSignInProps)
         {formErrors?.password && <small className="text-red-500">{formErrors.password}</small>}
         <Button value="Sign in" disabled={isLoading} />
       </form>
-    </div>)
+    </div>
+    <div className="self-center">
+      Don&apos;t have an account? <Link href="signup">Sign up</Link>.
+    </div></>)
 }
 
 export default FormSignIn

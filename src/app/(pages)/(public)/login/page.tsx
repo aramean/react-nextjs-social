@@ -2,12 +2,11 @@
 
 import { useState } from "react"
 import FormLogin from "@/components/form.signin"
-import LinkSignup from "@/components/link.signup"
 
 export default function Login() {
 
   const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("") 
+  const [password, setPassword] = useState("")
 
   return (
     <div className="grid grid-rows-[auto_auto_auto] items-center justify-items-center min-h-screen">
@@ -18,7 +17,6 @@ export default function Login() {
           password={password}
           setPassword={setPassword}
         />
-        <LinkSignup />
       </main>
     </div>
   )

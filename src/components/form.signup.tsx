@@ -1,8 +1,8 @@
+import Link from "next/link"
 import Button from "@/components/partials/button"
 import Heading from "@/components/partials/heading"
 import InputText from "@/components/partials/inputText"
 import InputPassword from "@/components/partials/inputPassword"
-import LinkSignIn from "./link.signin"
 import CheckBox from "@/components/partials/checkbox"
 import Hr from "@/components/partials/hr"
 import Logo from "@/components/partials/logo"
@@ -35,8 +35,8 @@ const FormSignUp = ({ name, setName, email, setEmail, password, setPassword, pas
         <Heading text="NEXT" size="4xl" />
         <Heading text="social" size="3xl" />
       </div>
-      <div className="text-center mt-4">
-        <LinkSignIn />
+      <div className="text-center self-center mt-4">
+        Already have an account? <Link href="login">Sign in</Link>.
       </div>
       {apiError && <Alert message={apiError} />}
       <form className="grid gap-3 flex-col flex-wrap mt-5" onSubmit={onSubmit}>
