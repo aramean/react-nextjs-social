@@ -1,9 +1,9 @@
 //import { getAuthToken } from "@/utils/cookies"
 //import { redirect } from "next/navigation"
 import Link from "next/link"
-import Logo from "@/components/ui/partials/logo"
-import HeaderSearch from "@/components/ui/header.search"
-import HeaderStatus from "@/components/ui/header.status"
+import Logo from "@/components/partials/logo"
+import HeaderSearch from "@/components/header.search"
+import HeaderStatus from "@/components/header.status"
 
 export default async function Layout({ children }: { children: React.ReactNode }) {
 

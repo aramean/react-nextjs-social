@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import FormSignup from "@/components/ui/form.signup"
+import FormSignup from "@/components/form.signup"
 import { z } from "zod"
 
 export default function SignupPage() {
