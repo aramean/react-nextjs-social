@@ -3,16 +3,16 @@
 import { useState } from "react"
 
 interface Option {
-    label: string
-    value: string
-};
+  label: string
+  value: string
+}
 
 interface DropDownProps {
-    options: Option[]
-    buttonIcon?: boolean
-    buttonLabel?: string
-    onSelect?: (option: Option) => void
-};
+  options: Option[]
+  buttonIcon?: boolean
+  buttonLabel?: string
+  onSelect?: (option: Option) => void
+}
 
 const DropDown = ({ options, buttonIcon = false, buttonLabel = "Options", onSelect }: DropDownProps) => {
   const [isOpen, setIsOpen] = useState(false)

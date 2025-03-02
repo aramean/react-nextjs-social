@@ -5,7 +5,7 @@ interface CardProps {
   title?: string
   text?: string
   createdAt?: string
-};
+}
 
 const Card = ({ picture = "", title = "", text = "", createdAt }: CardProps) => {
   return (<div className="width-full bg-white rounded-md">

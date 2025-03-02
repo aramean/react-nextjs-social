@@ -1,7 +1,7 @@
 interface HeadingProps {
-    text: string
-    size?: "sm" | "base" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl" | "8xl" | "9xl"
-};
+  text: string
+  size?: "sm" | "base" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl" | "8xl" | "9xl"
+}
 
 const Heading = ({ text, size = "base" }: HeadingProps) => {
   const sizeClass = {

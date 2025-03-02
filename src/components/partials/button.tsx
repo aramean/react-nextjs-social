@@ -1,7 +1,7 @@
 interface ButtonProps {
   value: string
   disabled?: boolean
-};
+}
 
 const Button = ({ value, disabled = false }: ButtonProps) => {
   return (

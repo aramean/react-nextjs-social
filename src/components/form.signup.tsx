@@ -9,22 +9,22 @@ import Logo from "@/components/partials/logo"
 import Alert from "@/components/partials/alert"
 
 interface FormSignUpProps {
-    name: string
-    setName: React.Dispatch<React.SetStateAction<string>>
-    email: string
-    setEmail: React.Dispatch<React.SetStateAction<string>>
-    password: string
-    setPassword: React.Dispatch<React.SetStateAction<string>>
-    password2: string
-    setPassword2: React.Dispatch<React.SetStateAction<string>>
-    isSubmit: boolean
-    onSubmit: (event: React.FormEvent) => void
-    formErrors?: {
-        name?: string;
-        email?: string;
-        password?: string;
-    };
-    apiError?: string
+  name: string
+  setName: React.Dispatch<React.SetStateAction<string>>
+  email: string
+  setEmail: React.Dispatch<React.SetStateAction<string>>
+  password: string
+  setPassword: React.Dispatch<React.SetStateAction<string>>
+  password2: string
+  setPassword2: React.Dispatch<React.SetStateAction<string>>
+  isSubmit: boolean
+  onSubmit: (event: React.FormEvent) => void
+  formErrors?: {
+    name?: string;
+    email?: string;
+    password?: string;
+  }
+  apiError?: string
 }
 
 const FormSignUp = ({ name, setName, email, setEmail, password, setPassword, password2, setPassword2, isSubmit, onSubmit, formErrors, apiError }: FormSignUpProps) => {

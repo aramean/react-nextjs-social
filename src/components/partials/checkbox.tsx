@@ -1,8 +1,8 @@
 interface CheckBoxProps {
-    checked: boolean
-    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
-    children: React.ReactNode
-};
+  checked: boolean
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+  children: React.ReactNode
+}
 
 const CheckBox = ({ checked = false, onChange, children }: CheckBoxProps) => {
   return (<div className="span">

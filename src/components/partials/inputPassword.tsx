@@ -1,9 +1,9 @@
 interface InputPasswordProps {
-    value?: string
-    placeholder?: string
-    height?: "sm" | "md" | "lg" | "xl"
-    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
-};
+  value?: string
+  placeholder?: string
+  height?: "sm" | "md" | "lg" | "xl"
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+}
 
 const InputPassword = ({ value, height = "md", placeholder = "", onChange }: InputPasswordProps) => {
   const heightClass = {

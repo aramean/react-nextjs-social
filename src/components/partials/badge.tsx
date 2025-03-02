@@ -1,7 +1,7 @@
 interface BadgeProps {
-    number?: number
-    children?: React.ReactNode
-};
+  number?: number
+  children?: React.ReactNode
+}
 
 const Badge = ({ number = 0, children }: BadgeProps) => {
   return (<div className="relative">
