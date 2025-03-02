@@ -13,14 +13,12 @@ interface UseLoginResult {
 export function useAccount(): UseLoginResult {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const router = useRouter()
 
   const updateName = async (name: string) => {
     setIsLoading(true)
     setError(null)
     try {
       await account.updateName(name)
-      router.push("dashboard")
     } catch (err) {
       setIsLoading(false)
       setError("" + err)
