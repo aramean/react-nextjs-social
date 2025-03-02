@@ -14,7 +14,11 @@ export default function Settings() {
     <div className="w-3/5">
       <Heading text="Profile information" size="2xl"></Heading>
       <Br height="md" />
-      <ListItem href="settings/name" title="Name" value="Josef"></ListItem>
+      <ListItem href="settings/account/name" title="Name" value="Josef"></ListItem>
+      <Br height="xxl" />
+      <Heading text="Account management" size="2xl"></Heading>
+      <Br height="md" />
+      <ListItem href="settings/account/remove" title="" value="Remove account"></ListItem>
     </div>
   </div>)
 }
