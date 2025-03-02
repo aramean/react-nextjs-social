@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { account } from "@/lib/appwrite"
+import { account, exception } from "@/lib/appwrite"
 
 interface UseLogoutResult {
   isLoading: boolean
@@ -13,7 +13,7 @@ interface UseLogoutResult {
 export function useLogout(): UseLogoutResult {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const router = useRouter() 
+  const router = useRouter()
 
   const logout = async () => {
     setIsLoading(true)
@@ -23,7 +23,7 @@ export function useLogout(): UseLogoutResult {
       router.push("/")
     } catch (err) {
       setIsLoading(false)
-      setError("Failed to logout. " + err)
+      setError(exception(err))
     }
   }
 
