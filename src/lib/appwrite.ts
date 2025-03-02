@@ -8,10 +8,7 @@ const account = new Account(client)
 const databases = new Databases(client)
 
 const exception = (error: unknown): string => {
-  if (error instanceof AppwriteException) {
-    return error.message
-  }
-  return "An unexpected error occurred"
+  return error instanceof AppwriteException ? error.message : "An unexpected error occurred"
 }
 
 export { client, account, databases, ID, Query, exception }
