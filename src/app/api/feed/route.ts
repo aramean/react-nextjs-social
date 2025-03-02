@@ -1,3 +1,5 @@
+"use server"
+
 import { databases, ID } from "@/lib/appwrite"
 
 const database = "67a1f726001f51b0fb86" // posts

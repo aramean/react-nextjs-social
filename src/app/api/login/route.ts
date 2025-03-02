@@ -1,3 +1,5 @@
+"use server"
+
 import { account } from "@/lib/appwrite"
 
 interface Payload {
