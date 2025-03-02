@@ -18,8 +18,8 @@ const ListItem = ({ href = "", picture = "", title = "", text = "", value }: Lis
         style={{ backgroundImage: `url(${picture})` }}
       />
     )}
-    <div className="flex flex-col justify-between border-r border-b border-l border-gray-300 lg:border-t lg:border-gray-200 rounded-b p-5 shadow-sm">
-      <Link href={href} className="font-normal hover:no-underline">
+    <Link href={href} className="font-normal hover:no-underline">
+      <div className="flex flex-col justify-between border-r border-b border-l border-gray-300 lg:border-t lg:border-gray-200 rounded-b p-3 shadow-sm hover:bg-slate-50">
         <div className="flex flex-row items-center">
           {title && (<div className="text-gray-900 font-bold">{title}</div>)}
           <p className="text-gray-900 mr-24">{text}</p>
@@ -28,8 +28,8 @@ const ListItem = ({ href = "", picture = "", title = "", text = "", value }: Lis
             <ArrowRightIcon className='w-5' />
           </p>
         </div>
-      </Link>
-    </div>
+      </div>
+    </Link>
   </div>)
 }
 
