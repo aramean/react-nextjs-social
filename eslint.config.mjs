@@ -20,7 +20,8 @@ const eslintConfig = [
       "comma-dangle": ["error", "never"],
       "multiline-ternary": ["error", "never"],
       "operator-linebreak": ["error", "none"],
-      "keyword-spacing": ["error", { "before": true, "after": true }]
+      "keyword-spacing": ["error", { "before": true, "after": true }],
+      "padding-line-between-statements": ["error", { "blankLine": "always", "prev": "directive", "next": "*" }]
     },
     linterOptions: {
       reportUnusedDisableDirectives: "error"
