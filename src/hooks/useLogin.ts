@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { account } from "@/lib/appwrite"
+import { account, exception } from "@/lib/appwrite"
 
 interface UseLoginResult {
   isLoading: boolean
@@ -13,7 +13,7 @@ interface UseLoginResult {
 export function useLogin(): UseLoginResult {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const router = useRouter() 
+  const router = useRouter()
 
   const login = async (email: string, password: string) => {
     setIsLoading(true)
@@ -24,7 +24,7 @@ export function useLogin(): UseLoginResult {
       setIsLoading(false)
     } catch (err) {
       setIsLoading(false)
-      setError("Failed to log in. Please check your credentials. " + err)
+      setError(exception(err))
     }
   }
 
