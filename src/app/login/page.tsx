@@ -1,66 +1,13 @@
 "use client"
 
 import { useState } from "react"
-import { useRouter } from "next/navigation"
-import { setAuthToken } from "@/utils/cookies"
-import ApiFetch from "@/lib/apiFetch"
 import FormLogin from "@/app/components/ui/form.signin"
 import LinkSignup from "@/app/components/ui/link.signup"
-import { z } from "zod"
-
-const signInSchema = z.object({
-  email: z
-    .string()
-    .email("Invalid email address")
-    .nonempty("Email is required"),
-  password: z
-    .string()
-    .min(6, "Password must be at least 6 characters")
-    .nonempty("Password is required")
-})
 
 export default function Login() {
 
   const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [isSubmit, setIsSubmit] = useState<boolean>(false)
-  const [formErrors, setFormErrors] = useState<{ email?: string; password?: string }>({})
-  const [apiError, setApiError] = useState<string>("")
-  const router = useRouter()
-
-  const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault()
-    setIsSubmit(true)
-    setFormErrors({})
-    setApiError("")
-
-    const result = signInSchema.safeParse({ email, password })
-
-    if (!result.success) {
-      const validationErrors = result.error.errors.reduce(
-        (acc, { path, message }) => ({ ...acc, [path[0]]: message }),
-        {}
-      )
-      setFormErrors(validationErrors)
-      setIsSubmit(false)
-      return
-    }
-
-    try {
-      const response = await ApiFetch("POST", "login", { email, password })
-
-      if (response.ok) {
-        setAuthToken()
-        router.push("dashboard")
-      } else {
-        const message = await response.json()
-        setApiError(message.response.message)
-      }
-    } finally {
-      setIsSubmit(false)
-    }
-    return
-  }
+  const [password, setPassword] = useState("") 
 
   return (
     <div className="grid grid-rows-[auto_auto_auto] items-center justify-items-center min-h-screen">
@@ -70,10 +17,6 @@ export default function Login() {
           setEmail={setEmail}
           password={password}
           setPassword={setPassword}
-          isSubmit={isSubmit}
-          onSubmit={handleSubmit}
-          formErrors={formErrors}
-          apiError={apiError}
         />
         <LinkSignup />
       </main>

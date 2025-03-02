@@ -1,17 +1,20 @@
 "use client"
+
 import { useRouter } from "next/navigation"
+import { useLogout } from "@/hooks/useLogout"
 import { ChatBubbleLeftIcon, UserIcon, BellIcon } from "@heroicons/react/24/solid"
 import Badge from "./partials/badge"
 import Link from "next/link"
 import DropDown from "./partials/dropdown"
-import { deleteAuthToken } from "@/utils/cookies"
+//import { deleteAuthToken } from "@/utils/cookies"
 
 const HeaderStatus = () => {
+  const { logout } = useLogout()
   const router = useRouter()
 
   const handleLogout = async () => {
-    deleteAuthToken()
-    router.push("/login")
+    await logout()
+    //deleteAuthToken()
   }
 
   return (

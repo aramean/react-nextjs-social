@@ -1,25 +1,59 @@
+import { useState } from "react"
+import { useLogin } from "@/hooks/useLogin"
 import Button from "@/app/components/ui/partials/button"
 import Heading from "@/app/components/ui/partials/heading"
 import InputText from "@/app/components/ui/partials/inputText"
 import InputPassword from "./partials/inputPassword"
 import Logo from "./partials/logo"
 import Alert from "./partials/alert"
+import { z } from "zod"
 
 interface FormSignInProps {
     email: string
     setEmail: React.Dispatch<React.SetStateAction<string>>
     password: string
     setPassword: React.Dispatch<React.SetStateAction<string>>
-    isSubmit: boolean
-    onSubmit: (event: React.FormEvent) => void
     formErrors?: {
         email?: string;
         password?: string;
     };
     apiError?: string
-};
+}
 
-const FormSignIn = ({ email, setEmail, password, setPassword, isSubmit, onSubmit, formErrors, apiError }: FormSignInProps) => {
+const signInSchema = z.object({
+  email: z
+    .string()
+    .email("Invalid email address")
+    .nonempty("Email is required"),
+  password: z
+    .string()
+    .min(6, "Password must be at least 6 characters")
+    .nonempty("Password is required")
+})
+
+const FormSignIn = ({ email, setEmail, password, setPassword, apiError }: FormSignInProps) => {
+  //const [email, setEmail] = useState("")
+  const [formErrors, setFormErrors] = useState<{ email?: string; password?: string }>({})
+  const { isLoading, error, login } = useLogin()
+
+  const handleLogin = async (event: React.FormEvent) => {
+    event.preventDefault()
+
+    const result = signInSchema.safeParse({ email, password })
+
+    if (!result.success) {
+      const validationErrors = result.error.errors.reduce(
+        (acc, { path, message }) => ({ ...acc, [path[0]]: message }),
+        {}
+      )
+      setFormErrors(validationErrors)
+      return
+    }
+    
+    console.log(error)
+    return await login(email, password)
+  }
+
   return (
     <div className="flex flex-col w-full items-center">
       <Logo />
@@ -31,7 +65,7 @@ const FormSignIn = ({ email, setEmail, password, setPassword, isSubmit, onSubmit
                 Open Source Social Network.
       </div>
       {apiError && <Alert message={apiError} />}
-      <form className="grid gap-3 w-full size-auto mt-5" onSubmit={onSubmit}>
+      <form className="grid gap-3 w-full size-auto mt-5" onSubmit={(event) => handleLogin(event)}>
         <InputText
           placeholder="Email"
           value={email}
@@ -44,7 +78,7 @@ const FormSignIn = ({ email, setEmail, password, setPassword, isSubmit, onSubmit
           onChange={(e) => setPassword(e.target.value)}
         />
         {formErrors?.password && <small className="text-red-500">{formErrors.password}</small>}
-        <Button value="Sign in" disabled={isSubmit} />
+        <Button value="Sign in" disabled={isLoading} />
       </form>
     </div>)
 }
