@@ -1,12 +1,13 @@
 "use client"
 
 import { useState } from "react"
-import { account } from "@/lib/appwrite"
+import { account, exception } from "@/lib/appwrite"
 
 interface UseLoginResult {
   isLoading: boolean
   error: string | null
   updateName: (name: string) => Promise<void>
+  updateEmail: (email: string, password: string) => Promise<void>
 }
 
 export function useAccount(): UseLoginResult {
@@ -20,9 +21,20 @@ export function useAccount(): UseLoginResult {
       await account.updateName(name)
     } catch (err) {
       setIsLoading(false)
-      setError("" + err)
+      setError(exception(err))
     }
   }
 
-  return { isLoading, error, updateName }
+  const updateEmail = async (email: string, password: string) => {
+    setIsLoading(true)
+    setError(null)
+    try {
+      await account.updateEmail(email, password)
+    } catch (err) {
+      setIsLoading(false)
+      setError(exception(err))
+    }
+  }
+
+  return { isLoading, error, updateName, updateEmail }
 }
