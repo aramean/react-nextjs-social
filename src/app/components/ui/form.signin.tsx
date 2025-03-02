@@ -9,15 +9,10 @@ import Alert from "./partials/alert"
 import { z } from "zod"
 
 interface FormSignInProps {
-    email: string
-    setEmail: React.Dispatch<React.SetStateAction<string>>
-    password: string
-    setPassword: React.Dispatch<React.SetStateAction<string>>
-    formErrors?: {
-        email?: string;
-        password?: string;
-    };
-    apiError?: string
+  email: string
+  setEmail: React.Dispatch<React.SetStateAction<string>>
+  password: string
+  setPassword: React.Dispatch<React.SetStateAction<string>>
 }
 
 const signInSchema = z.object({
@@ -31,8 +26,7 @@ const signInSchema = z.object({
     .nonempty("Password is required")
 })
 
-const FormSignIn = ({ email, setEmail, password, setPassword, apiError }: FormSignInProps) => {
-  //const [email, setEmail] = useState("")
+const FormSignIn = ({ email, setEmail, password, setPassword }: FormSignInProps) => {
   const [formErrors, setFormErrors] = useState<{ email?: string; password?: string }>({})
   const { isLoading, error, login } = useLogin()
 
@@ -49,7 +43,7 @@ const FormSignIn = ({ email, setEmail, password, setPassword, apiError }: FormSi
       setFormErrors(validationErrors)
       return
     }
-    
+
     console.log(error)
     return await login(email, password)
   }
@@ -62,9 +56,9 @@ const FormSignIn = ({ email, setEmail, password, setPassword, apiError }: FormSi
         <Heading text="social" size="3xl" />
       </div>
       <div className="text-center mt-3">
-                Open Source Social Network.
+        Open Source Social Network.
       </div>
-      {apiError && <Alert message={apiError} />}
+      {error && <Alert message={error} />}
       <form className="grid gap-3 w-full size-auto mt-5" onSubmit={(event) => handleLogin(event)}>
         <InputText
           placeholder="Email"
