@@ -44,7 +44,6 @@ const FormSignIn = ({ email, setEmail, password, setPassword }: FormSignInProps)
       return
     }
 
-    console.log(error)
     return await login(email, password)
   }
 
