@@ -1,6 +1,6 @@
 "use client"
 
-import SettingsForm from "@/components/forms/settings"
+import SettingsForm from "@/components/forms/settings.name"
 import Alert from "@/components/partials/alert"
 import Box from "@/components/partials/box"
 import Button from "@/components/partials/button"

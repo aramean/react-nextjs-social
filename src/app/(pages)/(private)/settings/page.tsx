@@ -15,6 +15,7 @@ export default function Settings() {
       <Heading text="Profile information" size="2xl"></Heading>
       <Br height="md" />
       <ListItem href="settings/account/name" title="Name" value="Josef"></ListItem>
+      <ListItem href="settings/account/email" title="Email" value="@"></ListItem>
       <Br height="xxl" />
       <Heading text="Account management" size="2xl"></Heading>
       <Br height="md" />
