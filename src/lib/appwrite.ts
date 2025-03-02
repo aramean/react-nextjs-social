@@ -1,3 +1,5 @@
+"use client"
+
 import { Client, Account, Databases, ID, Query } from "appwrite"
 import { ENDPOINT, PROJECT } from "@constants"
 

@@ -1,3 +1,5 @@
+"use server"
+
 const ApiFetch = async (method: string, route: string, body: object) => {
   const response = await fetch("api/" + route, {
     method: method || "GET",
