@@ -5,7 +5,7 @@ import Logo from "@/components/ui/partials/logo"
 import HeaderSearch from "@/components/ui/header.search"
 import HeaderStatus from "@/components/ui/header.status"
 
-export default async function ProtectedLayout({ children }: { children: React.ReactNode }) {
+export default async function Layout({ children }: { children: React.ReactNode }) {
 
   /*if (!await getAuthToken()) {
     return redirect("/login")
