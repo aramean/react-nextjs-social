@@ -1,5 +1,7 @@
 "use client"
 
+import Br from "@/components/partials/br"
+import Heading from "@/components/partials/heading"
 import ListItem from "@/components/partials/listItem"
 import Sidebar from "@/components/partials/sidebar"
 
@@ -10,7 +12,8 @@ export default function Settings() {
       <Sidebar />
     </div>
     <div className="w-3/5">
-      Profile information
+      <Heading text="Profile information" size="2xl"></Heading>
+      <Br height="md" />
       <ListItem href="settings/name" title="Name" value="Josef"></ListItem>
     </div>
   </div>)
