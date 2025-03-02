@@ -1,8 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import Card from "@/app/components/ui/partials/card"
-import FormFeed from "@/app/components/ui/form.feed"
+import Card from "@/components/ui/partials/card"
+import FormFeed from "@/components/ui/form.feed"
 import { useFeed } from "@/hooks/useFeed"
 import { formatTimeAgo } from "@/utils/date"
 import ApiFetch from "@/lib/apiFetch"

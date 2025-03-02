@@ -1,8 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import FormLogin from "@/app/components/ui/form.signin"
-import LinkSignup from "@/app/components/ui/link.signup"
+import FormLogin from "@/components/ui/form.signin"
+import LinkSignup from "@/components/ui/link.signup"
 
 export default function Login() {
 

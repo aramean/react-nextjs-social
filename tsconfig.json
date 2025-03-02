@@ -20,11 +20,11 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
+      "@constants": ["./src/app/constants.ts"],
       "@css": ["./src/app/globals.css"],
       "@lib/*": ["./lib/*"],
       "@components/*": ["./src/app/components/*"],
-      "@pages/*": ["./src/app/*/page.tsx"],
-      "@constants": ["./src/app/constants.ts"]
+      "@pages/*": ["./src/app/(pages)/(public)/*/page.tsx"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
