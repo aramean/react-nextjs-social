@@ -21,7 +21,6 @@ export function useLogin(): UseLoginResult {
     try {
       await account.createEmailPasswordSession(email, password)
       router.push("dashboard")
-      setIsLoading(false)
     } catch (err) {
       setIsLoading(false)
       setError(exception(err))
