@@ -19,7 +19,11 @@ export default function Dashboard() {
       <div className="w-2/4 px-5">
         <FormFeed />
         {data.map((item, key) => (
-          <Card key={key} text={item.message} createdAt={formatTimeAgo(item.created)} />
+          <Card
+            key={key}
+            text={item.message}
+            createdAt={formatTimeAgo(item.created)}
+          />
         ))}
       </div>
 
