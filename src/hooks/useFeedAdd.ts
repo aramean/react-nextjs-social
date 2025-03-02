@@ -2,8 +2,7 @@
 
 import { useState } from "react"
 import { databases, exception, ID } from "@/lib/appwrite"
-
-const database = "67a1f726001f51b0fb86" // posts
+import { DATABASE, COLLECTION_FEED } from "@constants"
 
 interface UseFeedAddResult {
   isLoading: boolean
@@ -19,7 +18,7 @@ export function useFeedAdd(): UseFeedAddResult {
     setIsLoading(true)
     setError(null)
     try {
-      await databases.createDocument(database, "67b5d98900395c75f665",
+      await databases.createDocument(DATABASE, COLLECTION_FEED,
         ID.unique(),
         { userId: "", message }
       )
