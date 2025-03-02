@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Card from "@/components/partials/card"
 import FormFeed from "@/components/form.feed"
-import { useFeed } from "@/hooks/useFeed"
+import { useFeed } from "@/hooks/useFeedLoad"
 import { formatTimeAgo } from "@/utils/date"
 import ApiFetch from "@/lib/apiFetch"
 
