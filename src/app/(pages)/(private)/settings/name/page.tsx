@@ -21,7 +21,7 @@ export default function SettingsName() {
     <div className="w-3/5">
       <Button value="Back" />Profile information
 
-      <Box title="Name" ></Box>
+      <Box title="Name"></Box>
 
       {error && <Alert message={error} />}
       <button onClick={handleSubmit} disabled={isLoading}>Save</button>
