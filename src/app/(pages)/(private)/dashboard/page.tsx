@@ -8,7 +8,6 @@ import { formatTimeAgo } from "@/utils/date"
 export default function Dashboard() {
   const { loading, data } = useFeed()
 
-
   if (loading) return <p>Loading...</p>
 
   return (
