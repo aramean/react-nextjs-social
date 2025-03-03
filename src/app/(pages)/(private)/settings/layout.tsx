@@ -10,7 +10,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
 
   return (
-    <div className="flex flex-row p-5">
+    <div className="flex flex-row p-5 gap-10">
       <div className="w-2/5">
         <Sidebar />
       </div>
