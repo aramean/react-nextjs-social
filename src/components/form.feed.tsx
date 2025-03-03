@@ -24,7 +24,7 @@ const FormFeed = () => {
         <fieldset className="flex flex-col gap-3" disabled={isLoading}>
           <TextArea
             placeholder="Write a post..."
-            height="xl"
+            height="xxl"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           />

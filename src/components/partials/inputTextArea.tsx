@@ -1,7 +1,7 @@
 interface InputTextAreaProps {
   value?: string
   placeholder?: string
-  height?: "sm" | "md" | "lg" | "xl"
+  height?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl"
   textSize?: string
   width?: string
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
@@ -9,10 +9,12 @@ interface InputTextAreaProps {
 
 const InputTextArea = ({ value = "", placeholder = "", height = "md", textSize = "md", width = "full", onChange }: InputTextAreaProps) => {
   const heightClass = {
-    sm: "h-9",
-    md: "h-10",
+    xs: "h9",
+    sm: "h-10",
+    md: "h-12",
     lg: "h-14",
-    xl: "h-16"
+    xl: "h-20",
+    xxl: "h-24"
   }[height]
 
   return (
