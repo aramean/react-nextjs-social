@@ -4,7 +4,7 @@ interface BoxProps {
 
 const Box = ({ children }: BoxProps) => {
   return (<div className="width-full bg-white rounded-md">
-    <div className="border-r border-b border-l border-gray-300 lg:border-t lg:border-gray-200 rounded-b p-5 flex flex-col justify-between leading-normal shadow-sm mt-3">
+    <div className="border-r border-b border-l border-gray-200 rounded-b p-5 flex flex-col justify-between shadow-sm mt-3">
       <div className="flex flex-row">
         {children}
       </div>
