@@ -1,16 +1,17 @@
 import { useState } from "react"
 import InputText from "@/components/partials/inputText"
+import Form from "@/components/partials/form"
 
 const SettingsForm = () => {
   const [name, setEmail] = useState("")
 
-  return (<form>
+  return (<Form>
     <InputText
       placeholder="Email"
       value={name}
       onChange={(e) => setEmail(e.target.value)}
     />
-  </form>)
+  </Form>)
 }
 
 export default SettingsForm

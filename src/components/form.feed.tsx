@@ -5,6 +5,7 @@ import { useFeedAdd } from "@/hooks/useFeedAdd"
 import Alert from "@/components/partials/alert"
 import Button from "@/components/partials/button"
 import TextArea from "@/components/partials/inputTextArea"
+import Form from "@/components/partials/form"
 import Skeleton from "@/components/partials/skeleton"
 
 const FormFeed = () => {
@@ -19,7 +20,7 @@ const FormFeed = () => {
 
   return (
     <>
-      <form onSubmit={(event) => handleSubmit(event)} className="flex flex-col bg-slate-50 border-r border-b border-l border-gray-300 lg:border-t lg:border-gray-200 rounded-b p-5 justify-between leading-normal shadow-sm">
+      <Form onSubmit={(event) => handleSubmit(event)} className="flex flex-col bg-slate-50 border-r border-b border-l border-gray-300 lg:border-t lg:border-gray-200 rounded-b p-5 justify-between leading-normal shadow-sm">
         <fieldset className="flex flex-col gap-3" disabled={isLoading}>
           <TextArea
             placeholder="Write a post..."
@@ -30,7 +31,7 @@ const FormFeed = () => {
           <Button value="Post" />
           {error && <Alert message={error} />}
         </fieldset>
-      </form>
+      </Form>
       {isLoading && <Skeleton />}
     </>
   )

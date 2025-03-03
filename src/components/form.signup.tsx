@@ -7,6 +7,7 @@ import CheckBox from "@/components/partials/checkbox"
 import Hr from "@/components/partials/hr"
 import Logo from "@/components/partials/logo"
 import Alert from "@/components/partials/alert"
+import Form from "@/components/partials/form"
 
 interface FormSignUpProps {
   name: string
@@ -39,7 +40,7 @@ const FormSignUp = ({ name, setName, email, setEmail, password, setPassword, pas
         Already have an account? <Link href="login">Sign in</Link>.
       </div>
       {apiError && <Alert message={apiError} />}
-      <form className="grid gap-3 flex-col flex-wrap mt-5" onSubmit={onSubmit}>
+      <Form className="grid gap-3 flex-col flex-wrap mt-5" onSubmit={onSubmit}>
         <InputText
           placeholder="Name"
           value={name}
@@ -68,7 +69,7 @@ const FormSignUp = ({ name, setName, email, setEmail, password, setPassword, pas
         </CheckBox>
         <Hr></Hr>
         <Button value="Sign up" disabled={isSubmit} />
-      </form>
+      </Form>
     </div>)
 }
 

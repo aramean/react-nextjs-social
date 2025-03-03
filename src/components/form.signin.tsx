@@ -8,6 +8,7 @@ import InputText from "@/components/partials/inputText"
 import InputPassword from "@/components/partials/inputPassword"
 import Logo from "@/components/partials/logo"
 import Alert from "@/components/partials/alert"
+import Form from "@/components/partials/form"
 
 interface FormSignInProps {
   email: string
@@ -59,7 +60,7 @@ const FormSignIn = ({ email, setEmail, password, setPassword }: FormSignInProps)
         Open Source Social Network.
       </div>
       {error && <Alert message={error} />}
-      <form className="grid gap-3 w-full size-auto mt-5" onSubmit={(event) => handleLogin(event)}>
+      <Form className="grid gap-3 w-full size-auto mt-5" onSubmit={(event) => handleLogin(event)}>
         <InputText
           placeholder="Email"
           value={email}
@@ -73,7 +74,7 @@ const FormSignIn = ({ email, setEmail, password, setPassword }: FormSignInProps)
         />
         {formErrors?.password && <small className="text-red-500">{formErrors.password}</small>}
         <Button value="Sign in" disabled={isLoading} />
-      </form>
+      </Form>
     </div>
     <div className="self-center">
       Don&apos;t have an account? <Link href="signup">Sign up</Link>.
