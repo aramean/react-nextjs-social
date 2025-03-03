@@ -17,7 +17,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <div className="w-3/5">
         {pathname !== "/settings" ? (
           <>
-            <Link className="flex flex-row" href="/settings">
+            <Link className="flex flex-row gap-1" href="/settings">
               <IconBack />Back
             </Link>
             <Box>{children}</Box>
