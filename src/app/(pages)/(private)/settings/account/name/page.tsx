@@ -1,8 +1,9 @@
 "use client"
 
+import Link from "next/link"
 import SettingsForm from "@/components/forms/settings.name"
 import Box from "@/components/partials/box"
-import Button from "@/components/partials/button"
+import IconBack from "@/components/partials/icons/back"
 import Sidebar from "@/components/partials/sidebar"
 
 export default function SettingsName() {
@@ -11,8 +12,9 @@ export default function SettingsName() {
       <Sidebar />
     </div>
     <div className="w-3/5">
-      <Button value="Back" />Profile information
-
+      <Link className="flex flex-row my-4" href="/settings">
+        <IconBack />Profile information
+      </Link>
       <Box>
         <SettingsForm />
       </Box>
