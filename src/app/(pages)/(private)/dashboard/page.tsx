@@ -17,7 +17,7 @@ export default function Dashboard() {
         <p>Left Sidebar</p>
       </div>
 
-      <div className="w-full sm-w-2/4 px-5">
+      <div className="w-full md:w-2/4 p-3">
         <FormFeed setPendingPosts={setPendingPosts} />
         {loading && <><PostSkeleton /><PostSkeleton /><PostSkeleton /></>}
         {pendingPosts.map((item, key) => (
