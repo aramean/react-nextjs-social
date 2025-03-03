@@ -1,13 +1,13 @@
-import Link from "next/link"
+import MenuItem from "@/components/partials/menuItem"
 
 interface SidebarProps {
   title?: string
 }
 
 const Logo = ({ title = "" }: SidebarProps) => {
-  return (<ul className="">
+  return (<ul className="bg-white">
     {title}
-    <Link href="">Account Preferences</Link>
+    <MenuItem value="Account Preferences" href="/settings" />
   </ul>)
 }
 
