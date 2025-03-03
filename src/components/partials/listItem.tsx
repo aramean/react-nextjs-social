@@ -1,4 +1,4 @@
-import { ArrowRightIcon } from "@heroicons/react/24/outline"
+import { ChevronRightIcon } from "@heroicons/react/16/solid"
 import Link from "next/link"
 
 interface ListeItemProps {
@@ -17,7 +17,7 @@ const ListItem = ({ href = "", title = "", text = "", value }: ListeItemProps) =
           <p className="text-gray-900 mr-24">{text}</p>
           <p className="text-gray-600 w-full">{value}</p>
           <p className="text-sm pr-1 text-gray-600">
-            <ArrowRightIcon className='w-5' />
+            <ChevronRightIcon className='w-5' />
           </p>
         </div>
       </div>
