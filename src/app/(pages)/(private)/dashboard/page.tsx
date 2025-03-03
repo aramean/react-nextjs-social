@@ -9,7 +9,7 @@ import PostSkeleton from "@/components/partials/postSkeleton"
 
 export default function Dashboard() {
   const { loading, data } = useFeed()
-  const [pendingPosts, setPendingPosts] = useState<{ message: string }[]>([])
+  const [pendingPosts, setPendingPosts] = useState<{ message: string, createdAt: Date }[]>([])
 
   return (
     <div className="flex">
@@ -24,6 +24,7 @@ export default function Dashboard() {
           <Card
             key={key}
             text={item.message}
+            createdAt={formatTimeAgo(item.createdAt.toISOString())}
           />
         ))}
         {data.map((item, key) => (

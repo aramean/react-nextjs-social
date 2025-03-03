@@ -9,7 +9,7 @@ import Form from "@/components/partials/form"
 import PostSkeleton from "@/components/partials/postSkeleton"
 
 interface FormFeedProps {
-  setPendingPosts: React.Dispatch<React.SetStateAction<{ message: string }[]>>
+  setPendingPosts: React.Dispatch<React.SetStateAction<{ message: string, createdAt: Date }[]>>
 }
 
 const FormFeed = ({ setPendingPosts }: FormFeedProps) => {
@@ -19,7 +19,12 @@ const FormFeed = ({ setPendingPosts }: FormFeedProps) => {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
     await add(message)
-    setPendingPosts((prev) => [{ message }, ...prev])
+    setPendingPosts((prev) => [
+      {
+        message,
+        createdAt: new Date(Date.now())
+      },
+      ...prev])
     setMessage("")
   }
 
