@@ -1,11 +1,12 @@
 import { UserGroupIcon } from "@heroicons/react/24/solid"
-interface LogoProps {
+
+interface IconLogoProps {
   size?: string
   color?: string
 }
 
-const Logo = ({ size = "80%", color = "#726192" }: LogoProps) => {
+const IconLogo = ({ size = "80%", color = "#726192" }: IconLogoProps) => {
   return (<UserGroupIcon color={color} width={size} />)
 }
 
-export default Logo
+export default IconLogo

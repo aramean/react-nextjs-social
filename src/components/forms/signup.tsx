@@ -10,7 +10,7 @@ import InputText from "@/components/partials/inputText"
 import InputPassword from "@/components/partials/inputPassword"
 import CheckBox from "@/components/partials/checkbox"
 import Hr from "@/components/partials/hr"
-import Logo from "@/components/partials/logo"
+import IconLogo from "@/components/partials/icons/logo"
 import Alert from "@/components/partials/alert"
 import Form from "@/components/partials/form"
 
@@ -43,7 +43,7 @@ const SignUpForm = () => {
   return (
     <div className="flex flex-col w-full">
       <div className="flex flex-row self-center items-end">
-        <Logo size="45" />
+        <IconLogo size="45" />
         <Heading text="NEXT" size="4xl" />
         <Heading text="social" size="3xl" />
       </div>

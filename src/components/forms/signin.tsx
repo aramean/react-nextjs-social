@@ -8,7 +8,7 @@ import Button from "@/components/partials/button"
 import Heading from "@/components/partials/heading"
 import InputText from "@/components/partials/inputText"
 import InputPassword from "@/components/partials/inputPassword"
-import Logo from "@/components/partials/logo"
+import IconLogo from "@/components/partials/icons/logo"
 import Alert from "@/components/partials/alert"
 import Form from "@/components/partials/form"
 
@@ -37,7 +37,7 @@ const FormSignIn = () => {
 
   return (<>
     <div className="flex flex-col w-full items-center">
-      <Logo />
+      <IconLogo />
       <div className="flex flex-row self-center items-end">
         <Heading text="NEXT" size="4xl" />
         <Heading text="social" size="3xl" />
