@@ -10,14 +10,9 @@ import Logo from "@/components/partials/logo"
 import Alert from "@/components/partials/alert"
 import Form from "@/components/partials/form"
 
-interface FormSignInProps {
-  email: string
-  setEmail: React.Dispatch<React.SetStateAction<string>>
-  password: string
-  setPassword: React.Dispatch<React.SetStateAction<string>>
-}
-
-const FormSignIn = ({ email, setEmail, password, setPassword }: FormSignInProps) => {
+const FormSignIn = () => {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
   const [formErrors, setFormErrors] = useState<{ email?: string; password?: string }>({})
   const { isLoading, error, login } = useLogin()
 
