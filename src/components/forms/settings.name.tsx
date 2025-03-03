@@ -5,7 +5,7 @@ import { useAccount } from "@/hooks/useAccount"
 import InputText from "@/components/partials/inputText"
 import Form from "@/components/partials/form"
 import Alert from "@/components/partials/alert"
-import Button from "../partials/button"
+import Button from "@/components/partials/button"
 
 const SettingsFormName = () => {
   const [name, setName] = useState("")

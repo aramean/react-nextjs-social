@@ -2,9 +2,6 @@
 
 import SettingsForm from "@/components/forms/settings.name"
 import Alert from "@/components/partials/alert"
-import Box from "@/components/partials/box"
-import Button from "@/components/partials/button"
-import Sidebar from "@/components/partials/sidebar"
 import { useAccount } from "@/hooks/useAccount"
 
 export default function SettingsName() {
@@ -16,18 +13,9 @@ export default function SettingsName() {
   }
 
   return (<div className="flex">
-    <div className="w-2/5">
-      <Sidebar />
-    </div>
-    <div className="w-3/5">
-      <Button value="Back" />Account Management
-
-      <Box>
-        <SettingsForm />
-      </Box>
-
-      {error && <Alert message={error} />}
-      <button onClick={handleSubmit} disabled={isLoading}>Save</button>
-    </div>
-  </div>)
+    <SettingsForm />
+    {error && <Alert message={error} />}
+    <button onClick={handleSubmit} disabled={isLoading}>Remove my account</button>
+  </div>
+  )
 }
