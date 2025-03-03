@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Link from "next/link"
-import { z } from "zod"
 import { useLogin } from "@/hooks/useLogin"
+import { signInSchema } from "@/schemas/auth"
 import Button from "@/components/partials/button"
 import Heading from "@/components/partials/heading"
 import InputText from "@/components/partials/inputText"
@@ -16,17 +16,6 @@ interface FormSignInProps {
   password: string
   setPassword: React.Dispatch<React.SetStateAction<string>>
 }
-
-const signInSchema = z.object({
-  email: z
-    .string()
-    .email("Invalid email address")
-    .nonempty("Email is required"),
-  password: z
-    .string()
-    .min(6, "Password must be at least 6 characters")
-    .nonempty("Password is required")
-})
 
 const FormSignIn = ({ email, setEmail, password, setPassword }: FormSignInProps) => {
   const [formErrors, setFormErrors] = useState<{ email?: string; password?: string }>({})
