@@ -13,11 +13,11 @@ export default function Dashboard() {
 
   return (
     <div className="flex">
-      <div className="w-1/4 p-3">
+      <div className="w-1/4 p-3 hidden md:block">
         <p>Left Sidebar</p>
       </div>
 
-      <div className="w-2/4 px-5">
+      <div className="w-full sm-w-2/4 px-5">
         <FormFeed setPendingPosts={setPendingPosts} />
         {loading && <><PostSkeleton /><PostSkeleton /><PostSkeleton /></>}
         {pendingPosts.map((item, key) => (
@@ -36,7 +36,7 @@ export default function Dashboard() {
         ))}
       </div>
 
-      <div className="w-1/4 p-3">
+      <div className="w-1/4 p-3 hidden md:block">
         <p>Right Sidebar</p>
       </div>
     </div>
