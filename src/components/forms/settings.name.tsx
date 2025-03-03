@@ -1,3 +1,5 @@
+"use client"
+
 import { useState } from "react"
 import InputText from "@/components/partials/inputText"
 import Form from "@/components/partials/form"
