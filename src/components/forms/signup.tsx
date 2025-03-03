@@ -14,23 +14,7 @@ import Logo from "@/components/partials/logo"
 import Alert from "@/components/partials/alert"
 import Form from "@/components/partials/form"
 
-interface SignUpFormProps {
-  name: string
-  setName: React.Dispatch<React.SetStateAction<string>>
-  email: string
-  setEmail: React.Dispatch<React.SetStateAction<string>>
-  password: string
-  setPassword: React.Dispatch<React.SetStateAction<string>>
-  password2: string
-  setPassword2: React.Dispatch<React.SetStateAction<string>>
-  formErrors?: {
-    name?: string
-    email?: string
-  }
-  apiError?: string
-}
-
-const SignUpForm = ({ }: SignUpFormProps) => {
+const SignUpForm = () => {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")

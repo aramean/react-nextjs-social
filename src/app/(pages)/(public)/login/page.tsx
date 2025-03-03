@@ -1,6 +1,6 @@
 "use client"
 
-import FormLogin from "@/components/form.signin"
+import FormLogin from "@/components/forms/signin"
 
 export default function Login() {
   return (
