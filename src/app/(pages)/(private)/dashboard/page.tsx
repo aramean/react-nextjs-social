@@ -4,7 +4,7 @@ import { useState } from "react"
 import { formatTimeAgo } from "@/utils/date"
 import { useFeed } from "@/hooks/useFeedLoad"
 import Card from "@/components/partials/card"
-import FormFeed from "@/components/form.feed"
+import FormFeed from "@/components/forms/feed"
 import PostSkeleton from "@/components/partials/postSkeleton"
 
 export default function Dashboard() {
