@@ -6,7 +6,7 @@ import Alert from "@/components/partials/alert"
 import Button from "@/components/partials/button"
 import TextArea from "@/components/partials/inputTextArea"
 import Form from "@/components/partials/form"
-import Skeleton from "@/components/partials/skeleton"
+import PostSkeleton from "@/components/partials/postSkeleton"
 
 const FormFeed = () => {
   const [message, setMessage] = useState("")
@@ -32,7 +32,7 @@ const FormFeed = () => {
           {error && <Alert message={error} />}
         </fieldset>
       </Form>
-      {isLoading && <Skeleton />}
+      {isLoading && <PostSkeleton />}
     </>
   )
 }

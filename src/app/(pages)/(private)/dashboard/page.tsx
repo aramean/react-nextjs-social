@@ -4,7 +4,7 @@ import { formatTimeAgo } from "@/utils/date"
 import { useFeed } from "@/hooks/useFeedLoad"
 import Card from "@/components/partials/card"
 import FormFeed from "@/components/form.feed"
-import Skeleton from "@/components/partials/skeleton"
+import PostSkeleton from "@/components/partials/postSkeleton"
 
 export default function Dashboard() {
   const { loading, data } = useFeed()
@@ -17,7 +17,7 @@ export default function Dashboard() {
 
       <div className="w-2/4 px-5">
         <FormFeed />
-        {loading && <><Skeleton /><Skeleton /><Skeleton /></>}
+        {loading && <><PostSkeleton /><PostSkeleton /><PostSkeleton /></>}
         {data.map((item, key) => (
           <Card
             key={key}

@@ -1,4 +1,4 @@
-export const Skeleton = () => {
+export const PostSkeleton = () => {
   return (
     <div className="bg-white border border-gray-300 rounded-b p-5 flex flex-col gap-3 animate-pulse mt-3">
       <div className="h-4 bg-gray-300 rounded w-3/4"></div>
@@ -9,4 +9,4 @@ export const Skeleton = () => {
   )
 }
 
-export default Skeleton
+export default PostSkeleton
