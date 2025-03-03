@@ -7,7 +7,7 @@ import Form from "@/components/partials/form"
 import Alert from "@/components/partials/alert"
 import Button from "../partials/button"
 
-const SettingsForm = () => {
+const SettingsFormName = () => {
   const [name, setName] = useState("")
   const { isLoading, error, updateName } = useAccount()
 
@@ -16,7 +16,7 @@ const SettingsForm = () => {
     return await updateName(name)
   }
 
-  return (<Form onSubmit={handleSubmit}>
+  return (<Form onSubmit={handleSubmit} className="flex flex-col w-full gap-4">
     <InputText
       placeholder="Name"
       value={name}
@@ -28,4 +28,4 @@ const SettingsForm = () => {
   )
 }
 
-export default SettingsForm
+export default SettingsFormName
