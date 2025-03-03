@@ -2,6 +2,8 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import { useSignup } from "@/hooks/useSignup"
+import { signUpSchema } from "@/schemas/auth"
 import Button from "@/components/partials/button"
 import Heading from "@/components/partials/heading"
 import InputText from "@/components/partials/inputText"
@@ -11,7 +13,6 @@ import Hr from "@/components/partials/hr"
 import Logo from "@/components/partials/logo"
 import Alert from "@/components/partials/alert"
 import Form from "@/components/partials/form"
-import { signUpSchema } from "@/schemas/auth"
 
 interface SignUpFormProps {
   name: string
@@ -29,13 +30,19 @@ interface SignUpFormProps {
   apiError?: string
 }
 
-const SignUpForm = ({ name, setName, email, setEmail, password, setPassword, password2, setPassword2, apiError }: SignUpFormProps) => {
-  const [formErrors, setFormErrors] = useState<{ name?: string; email?: string }>({})
+const SignUpForm = ({ }: SignUpFormProps) => {
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [password2, setPassword2] = useState("")
+  const [formErrors, setFormErrors] = useState<{ name?: string, email?: string, password?: string, password2?: string }>({})
+  const { isLoading, error, signup } = useSignup()
+
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
     setFormErrors({})
 
-    const result = signUpSchema.safeParse({ name, email })
+    const result = signUpSchema.safeParse({ name, email, password, password2 })
 
     if (!result.success) {
       const validationErrors = result.error.errors.reduce(
@@ -46,7 +53,7 @@ const SignUpForm = ({ name, setName, email, setEmail, password, setPassword, pas
       return
     }
 
-    //return await login(email, password)
+    return await signup(email, password, name)
   }
 
   return (
@@ -59,7 +66,7 @@ const SignUpForm = ({ name, setName, email, setEmail, password, setPassword, pas
       <div className="text-center self-center mt-4">
         Already have an account? <Link href="login">Sign in</Link>.
       </div>
-      {apiError && <Alert message={apiError} />}
+      {error && <Alert message={error} />}
       <Form className="grid gap-3 flex-col flex-wrap mt-5" onSubmit={handleSubmit}>
         <InputText
           placeholder="Name"
@@ -78,17 +85,19 @@ const SignUpForm = ({ name, setName, email, setEmail, password, setPassword, pas
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        {formErrors?.password && <small className="text-red-500 -mt-2">{formErrors.password}</small>}
         <InputPassword
           placeholder="Confirm password"
           value={password2}
           onChange={(e) => setPassword2(e.target.value)}
         />
+        {formErrors?.password2 && <small className="text-red-500 -mt-2">{formErrors.password2}</small>}
         <Hr></Hr>
         <CheckBox onChange={(e) => (e.target.value)} checked>
           <span className="text-base">I have read and agree to the <a target="_blank" href="terms_of_service.md">Terms of Service</a> and <a target="_blank" href="privacy_policy.md">Privacy Policy</a>.</span>
         </CheckBox>
         <Hr></Hr>
-        <Button value="Sign up" disabled={isSubmit} />
+        <Button value="Sign up" disabled={isLoading} />
       </Form>
     </div>)
 }
