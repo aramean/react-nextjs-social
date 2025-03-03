@@ -1,14 +1,13 @@
 "use client"
 
+import { formatTimeAgo } from "@/utils/date"
+import { useFeed } from "@/hooks/useFeedLoad"
 import Card from "@/components/partials/card"
 import FormFeed from "@/components/form.feed"
-import { useFeed } from "@/hooks/useFeedLoad"
-import { formatTimeAgo } from "@/utils/date"
+import Skeleton from "@/components/partials/skeleton"
 
 export default function Dashboard() {
   const { loading, data } = useFeed()
-
-  if (loading) return <p>Loading...</p>
 
   return (
     <div className="flex">
@@ -18,6 +17,7 @@ export default function Dashboard() {
 
       <div className="w-2/4 px-5">
         <FormFeed />
+        {loading && <><Skeleton /><Skeleton /><Skeleton /></>}
         {data.map((item, key) => (
           <Card
             key={key}
