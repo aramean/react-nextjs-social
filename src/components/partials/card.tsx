@@ -16,7 +16,7 @@ const Card = ({ picture = "", title = "", text = "", createdAt }: CardProps) => 
         style={{ backgroundImage: `url(${picture})` }}
       />
     )}
-    <div className="border-r border-b border-l border-gray-200 lg:border-t rounded-b p-5 flex flex-col justify-between leading-normal shadow-sm mt-3">
+    <div className="border-r border-b border-l border-gray-200 rounded-b p-5 flex flex-col justify-between leading-normal shadow-sm mt-3">
       <div className="flex">
         <UserIcon className="w-11 h-10 mr-2 mb-1 p-1 rounded-full bg-slate-200 text-white" />
         <div className="text-sm w-full mt-2 flex flex-col">
