@@ -8,13 +8,18 @@ import TextArea from "@/components/partials/inputTextArea"
 import Form from "@/components/partials/form"
 import PostSkeleton from "@/components/partials/postSkeleton"
 
-const FormFeed = () => {
+interface FormFeedProps {
+  setPendingPosts: React.Dispatch<React.SetStateAction<{ message: string }[]>>
+}
+
+const FormFeed = ({ setPendingPosts }: FormFeedProps) => {
   const [message, setMessage] = useState("")
   const { isLoading, error, add } = useFeedAdd()
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
     await add(message)
+    setPendingPosts((prev) => [{ message }, ...prev])
     setMessage("")
   }
 
