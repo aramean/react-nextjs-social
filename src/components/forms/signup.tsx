@@ -1,3 +1,6 @@
+"use client"
+
+import { useState } from "react"
 import Link from "next/link"
 import Button from "@/components/partials/button"
 import Heading from "@/components/partials/heading"
@@ -8,8 +11,9 @@ import Hr from "@/components/partials/hr"
 import Logo from "@/components/partials/logo"
 import Alert from "@/components/partials/alert"
 import Form from "@/components/partials/form"
+import { signUpSchema } from "@/schemas/auth"
 
-interface FormSignUpProps {
+interface SignUpFormProps {
   name: string
   setName: React.Dispatch<React.SetStateAction<string>>
   email: string
@@ -18,17 +22,33 @@ interface FormSignUpProps {
   setPassword: React.Dispatch<React.SetStateAction<string>>
   password2: string
   setPassword2: React.Dispatch<React.SetStateAction<string>>
-  isSubmit: boolean
-  onSubmit: (event: React.FormEvent) => void
   formErrors?: {
-    name?: string;
-    email?: string;
-    password?: string;
+    name?: string
+    email?: string
   }
   apiError?: string
 }
 
-const FormSignUp = ({ name, setName, email, setEmail, password, setPassword, password2, setPassword2, isSubmit, onSubmit, formErrors, apiError }: FormSignUpProps) => {
+const SignUpForm = ({ name, setName, email, setEmail, password, setPassword, password2, setPassword2, apiError }: SignUpFormProps) => {
+  const [formErrors, setFormErrors] = useState<{ name?: string; email?: string }>({})
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault()
+    setFormErrors({})
+
+    const result = signUpSchema.safeParse({ name, email })
+
+    if (!result.success) {
+      const validationErrors = result.error.errors.reduce(
+        (acc, { path, message }) => ({ ...acc, [path[0]]: message }),
+        {}
+      )
+      setFormErrors(validationErrors)
+      return
+    }
+
+    //return await login(email, password)
+  }
+
   return (
     <div className="flex flex-col w-full">
       <div className="flex flex-row self-center items-end">
@@ -40,19 +60,19 @@ const FormSignUp = ({ name, setName, email, setEmail, password, setPassword, pas
         Already have an account? <Link href="login">Sign in</Link>.
       </div>
       {apiError && <Alert message={apiError} />}
-      <Form className="grid gap-3 flex-col flex-wrap mt-5" onSubmit={onSubmit}>
+      <Form className="grid gap-3 flex-col flex-wrap mt-5" onSubmit={handleSubmit}>
         <InputText
           placeholder="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        {formErrors?.name && <small className="text-red-500">{formErrors.name}</small>}
+        {formErrors?.name && <small className="text-red-500 -mt-2">{formErrors.name}</small>}
         <InputText
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        {formErrors?.email && <small className="text-red-500">{formErrors.email}</small>}
+        {formErrors?.email && <small className="text-red-500 -mt-2">{formErrors.email}</small>}
         <InputPassword
           placeholder="Password"
           value={password}
@@ -73,4 +93,4 @@ const FormSignUp = ({ name, setName, email, setEmail, password, setPassword, pas
     </div>)
 }
 
-export default FormSignUp
+export default SignUpForm

@@ -1,72 +1,13 @@
 "use client"
 
 import { useState } from "react"
-import { useRouter } from "next/navigation"
-import FormSignup from "@/components/form.signup"
-import { z } from "zod"
+import FormSignup from "@/components/forms/signup"
 
 export default function SignupPage() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [password2, setPassword2] = useState("")
   const [name, setName] = useState("")
-  const [isSubmit, setIsSubmit] = useState<boolean>(false)
-  const [formErrors, setFormErrors] = useState<{ email?: string; password?: string }>({})
-  const [apiError, setApiError] = useState<string>("")
-  const router = useRouter()
-
-  const signInSchema = z.object({
-    name: z
-      .string()
-      .nonempty("Name is required"),
-    email: z
-      .string()
-      .email("Invalid email address")
-      .nonempty("Email is required"),
-    password: z
-      .string()
-      .min(6, "Password must be at least 6 characters")
-      .nonempty("Password is required")
-  })
-
-  const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault()
-    setIsSubmit(true)
-    setFormErrors({})
-    setApiError("")
-
-    const result = signInSchema.safeParse({ name, email, password })
-
-    if (!result.success) {
-      const validationErrors = result.error.errors.reduce(
-        (acc, { path, message }) => ({ ...acc, [path[0]]: message }),
-        {}
-      )
-      setFormErrors(validationErrors)
-      setIsSubmit(false)
-      return
-    }
-
-    try {
-      const response = await fetch("api/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ email, password, name })
-      })
-
-      if (response.ok) {
-        console.log("Account created successfully")
-        router.push("login")
-      } else {
-        console.log("Login failed")
-      }
-    } finally {
-      setIsSubmit(false)
-    }
-    return
-  }
 
   return (
     <div className="grid grid-rows-[auto_auto_auto] items-center justify-items-center min-h-screen">
@@ -80,10 +21,6 @@ export default function SignupPage() {
           setPassword={setPassword}
           password2={password2}
           setPassword2={setPassword2}
-          isSubmit={isSubmit}
-          onSubmit={handleSubmit}
-          formErrors={formErrors}
-          apiError={apiError}
         />
       </main>
     </div>
