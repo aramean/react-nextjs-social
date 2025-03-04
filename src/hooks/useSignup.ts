@@ -2,7 +2,8 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { ID, account, exception } from "@/lib/appwrite"
+import { ID, account, databases, exception } from "@/lib/appwrite"
+import { DATABASE, COLLECTION_PROFILE } from "@constants"
 
 interface UseSignupResult {
   isLoading: boolean
@@ -18,8 +19,20 @@ export function useSignup(): UseSignupResult {
   const signup = async (email: string, password: string, name: string) => {
     setIsLoading(true)
     setError(null)
+
     try {
-      await account.create(ID.unique(), email, password, name)
+      const user = await account.create(ID.unique(), email, password, name)
+
+      try {
+        await databases.createDocument(DATABASE, COLLECTION_PROFILE, ID.unique(),
+          {
+            userId: user.$id // Link profile to auth user
+          }
+        )
+        console.log("Profile Created")
+      } catch (error) {
+        console.error("Error:", error)
+      }
       router.push("/")
     } catch (err) {
       setIsLoading(false)
