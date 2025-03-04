@@ -31,7 +31,7 @@ const InputText = ({ value = "", placeholder = "", height = "md", indent = "none
     <><label className="flex w-full relative text-gray-400 focus-within:text-gray-600">
       {icon && <IconMagnifyingGlass position={true} />}
       <input
-        className={`flex bg-white indent-3 border border-spacing-1 rounded-md border-slate-500 shadow-sm focus:shadow-md w-${width} focus:border-slate-800 ${heightClass} text-${textSize} ${indentClass}`}
+        className={`flex bg-white text-black indent-3 border border-spacing-1 rounded-md border-slate-500 shadow-sm focus:shadow-md w-${width} focus:border-slate-800 ${heightClass} text-${textSize} ${indentClass}`}
         type="text"
         value={value}
         placeholder={placeholder}
