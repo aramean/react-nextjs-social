@@ -1,12 +1,12 @@
 import { ArrowLeftIcon } from "@heroicons/react/16/solid"
 
-interface IconBackProps {
+interface IconArrowLeftProps {
   size?: string
   color?: string
   sizeClass?: "none" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl"
 }
 
-const IconBack = ({ size = "lg", color = "inherit" }: IconBackProps) => {
+const IconBack = ({ size = "lg", color = "inherit" }: IconArrowLeftProps) => {
   const sizeClass = {
     xs: "w-2",
     sm: "w-3",
