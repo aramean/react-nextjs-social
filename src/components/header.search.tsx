@@ -1,15 +1,21 @@
 "use client"
 
-import InputText from "@/components/partials/inputText"
+import { useState } from "react"
 import { APP_TITLE } from "@constants"
+import InputText from "@/components/partials/inputText"
 
 const HeaderSearch = () => {
-  return (<><InputText
+  const [search, setSearch] = useState("")
+
+  return (<InputText
     placeholder={`Search on ${APP_TITLE}`}
     textSize="sm"
-    height="sm"
-    onChange={e => e.target}
-  ></InputText></>)
+    height="md"
+    icon={true}
+    indent="xl"
+    value={search}
+    onChange={e => setSearch(e.target.value)}
+  ></InputText>)
 }
 
 export default HeaderSearch
