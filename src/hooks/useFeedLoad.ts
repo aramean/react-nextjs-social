@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { databases, Query } from "@/lib/appwrite"
+import { DATABASE, COLLECTION_FEED } from "@constants"
 
 interface FeedItem {
   message: string
@@ -16,8 +17,8 @@ export function useFeed() {
     async function fetchData() {
       try {
         const response = await databases.listDocuments(
-          "67a1f726001f51b0fb86",
-          "67b5d98900395c75f665",
+          DATABASE,
+          COLLECTION_FEED,
           [
             Query.orderDesc("$createdAt")
           ]
