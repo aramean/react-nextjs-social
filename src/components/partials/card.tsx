@@ -20,7 +20,7 @@ const Card = ({ picture = "", title = "", text = "", createdAt }: CardProps) => 
       <div className="flex">
         <UserIcon className="w-11 h-10 mr-2 mb-1 p-1 rounded-full bg-slate-200 text-white" />
         <div className="text-sm w-full mt-2 flex flex-col">
-          <p className="text-gray-900 leading-none">Josef Gabrielsson</p>
+          <p className="text-gray-900 leading-none">{title}</p>
           <p className="text-gray-600 text-xs">{createdAt} * <LockClosedIcon className='mr-1 w-3 inline-flex' /></p>
         </div>
         <p className="text-sm text-gray-600 flex place-items-start">
@@ -28,7 +28,6 @@ const Card = ({ picture = "", title = "", text = "", createdAt }: CardProps) => 
         </p>
       </div>
       <div className="mb-1">
-        {title && (<div className="text-gray-900 font-bold text-xl mb-2">Title??</div>)}
         <p className="text-gray-700 text-base">{text}</p>
       </div>
     </div>

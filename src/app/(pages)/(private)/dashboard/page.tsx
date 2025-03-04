@@ -23,6 +23,7 @@ export default function Dashboard() {
         {pendingPosts.map((item, key) => (
           <Card
             key={key}
+            title="User"
             text={item.message}
             createdAt={formatTimeAgo(item.createdAt.toISOString())}
           />
@@ -30,6 +31,7 @@ export default function Dashboard() {
         {data.map((item, key) => (
           <Card
             key={key}
+            title="User"
             text={item.message}
             createdAt={formatTimeAgo(item.created)}
           />
