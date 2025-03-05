@@ -24,6 +24,7 @@ export default function Dashboard() {
           <Card
             key={key}
             title="User"
+            titleHref=""
             text={item.message}
             createdAt={formatTimeAgo(item.createdAt.toISOString())}
           />
@@ -32,6 +33,7 @@ export default function Dashboard() {
           <Card
             key={key}
             title="User"
+            titleHref={`/profile/${item.userId}`}
             text={item.message}
             createdAt={formatTimeAgo(item.created)}
           />

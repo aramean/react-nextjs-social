@@ -6,6 +6,7 @@ import { DATABASE, COLLECTION_FEED } from "@constants"
 
 interface FeedItem {
   message: string
+  userId: string
   created: string
 }
 
@@ -28,6 +29,7 @@ export function useFeed() {
 
         const feedItems: FeedItem[] = response?.documents?.map((item) => ({
           message: item.message,
+          userId: item.userId,
           created: item.$createdAt
         }))
 
