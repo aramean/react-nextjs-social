@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { databases, exception, ID } from "@/lib/appwrite"
+import { databases, account, exception, ID } from "@/lib/appwrite"
 import { DATABASE, COLLECTION_FEED } from "@constants"
 
 interface UseFeedAddResult {
@@ -18,9 +18,10 @@ export function useFeedAdd(): UseFeedAddResult {
     setIsLoading(true)
     setError(null)
     try {
+      const user = await account.get()
       await databases.createDocument(DATABASE, COLLECTION_FEED,
         ID.unique(),
-        { userId: "", message }
+        { userId: user.$id, message }
       )
       setIsLoading(false)
     } catch (err) {
