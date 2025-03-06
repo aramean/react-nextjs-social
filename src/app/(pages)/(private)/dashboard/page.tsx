@@ -14,7 +14,11 @@ export default function Dashboard() {
   return (
     <div className="flex">
       <div className="w-1/4 p-3 hidden md:block">
-        <p>Left Sidebar</p>
+        <p>Feeds</p>
+        * Today
+        * Trending
+        * Starred
+        * Archived
       </div>
 
       <div className="w-full md:w-2/4 p-3">
