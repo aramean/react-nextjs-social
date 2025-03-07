@@ -1,9 +1,11 @@
 interface HeadingProps {
   text: string
   size?: "sm" | "base" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl" | "8xl" | "9xl"
+  weight?: "light" | "normal" | "semibold" | "bold"
+  color?: string
 }
 
-const Heading = ({ text, size = "base" }: HeadingProps) => {
+const Heading = ({ text, size = "base", weight = "normal" }: HeadingProps) => {
   const sizeClass = {
     sm: "text-sm",
     base: "text-base",
@@ -19,7 +21,14 @@ const Heading = ({ text, size = "base" }: HeadingProps) => {
     "9xl": "text-9xl"
   }[size] || "text-base"
 
-  return (<h1 className={sizeClass}>{text}</h1>)
+  const weightClass = {
+    light: "font-light",
+    normal: "font-normal",
+    semibold: "font-semibold",
+    bold: "font-bold"
+  }[weight] || "font-normal"
+
+  return (<h1 className={`${sizeClass} ${weightClass}`}>{text}</h1>)
 }
 
 export default Heading

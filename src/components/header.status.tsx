@@ -41,10 +41,12 @@ const HeaderStatus = () => {
           { label: "Logout", value: "logout" }
         ]}
         onSelect={(option) => {
-          if (option.value === "logout") {
-            handleLogout()
+          if (option.value === "profile") {
+            router.push("profile")
           } else if (option.value === "settings") {
             router.push("/settings")
+          } else if (option.value === "logout") {
+            handleLogout()
           } else {
             console.log("Selected:", option)
           }
