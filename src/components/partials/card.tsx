@@ -6,11 +6,12 @@ interface CardProps {
   title?: string
   titleHref?: string
   text?: string
+  bare?: boolean
   createdAt?: string
 }
 
-const Card = ({ picture = "", title = "", titleHref = "", text = "", createdAt }: CardProps) => {
-  return (<div className="width-full bg-white rounded-md">
+const Card = ({ picture = "", title = "", titleHref = "", text = "", bare = false, createdAt }: CardProps) => {
+  return (<div className={`width-full rounded-md ${bare ? "" : "bg-white"}`}>
     {picture && (
       <div
         className="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
@@ -18,7 +19,7 @@ const Card = ({ picture = "", title = "", titleHref = "", text = "", createdAt }
         style={{ backgroundImage: `url(${picture})` }}
       />
     )}
-    <div className="border-r border-b border-l border-gray-200 rounded-b p-5 flex flex-col justify-between leading-normal shadow-sm mt-3">
+    <div className={`${bare ? "" : "border-r border-b border-l border-gray-200 rounded-b p-5 flex flex-col justify-between shadow-sm mt-3"}`}>
       <div className="flex">
         <UserIcon className="w-11 h-10 mr-2 mb-1 p-1 rounded-full bg-slate-200 text-white" />
         <div className="text-sm w-full mt-2 flex flex-col">

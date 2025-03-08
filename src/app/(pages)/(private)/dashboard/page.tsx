@@ -53,6 +53,7 @@ export default function Dashboard() {
               title="User"
               titleHref={`/profile/${item.userId}`}
               text={item.message}
+              bare={true}
               createdAt={formatTimeAgo(item.created)}
             />
           ))}
