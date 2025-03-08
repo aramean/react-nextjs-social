@@ -26,10 +26,10 @@ body {
 
 main {
   a {
-    @apply text-violet-900;
+    @apply text-black;
     @apply font-semibold;
-  
-    &:hover{
+
+    &:hover {
       @apply underline;
       @apply drop-shadow-sm;
     }
