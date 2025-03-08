@@ -9,7 +9,7 @@ import PostSkeleton from "@/components/partials/postSkeleton"
 import Box from "@/components/partials/box"
 
 export default function Dashboard() {
-  const { loading, data } = useFeed("")
+  const { loading, data } = useFeed()
   const [pendingPosts, setPendingPosts] = useState<{ message: string, createdAt: Date }[]>([])
 
   return (

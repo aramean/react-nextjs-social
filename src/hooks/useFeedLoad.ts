@@ -5,7 +5,7 @@ import { databases, account, Query } from "@/lib/appwrite"
 import { DATABASE, COLLECTION_FEED, COLLECTION_PROFILE } from "@constants"
 
 interface FeedProps {
-  userId: string
+  userId?: string
   loading: boolean
   data: FeedItem[]
 }
@@ -17,7 +17,7 @@ interface FeedItem {
   profile: { firstName: string; lastName: string;[key: string]: unknown } | null // Explicitly define profile structure
 }
 
-export function useFeed(userId: string): FeedProps {
+export function useFeed(userId?: string): FeedProps {
   const [data, setData] = useState<FeedItem[]>([])
   const [loading, setLoading] = useState(true)
 
