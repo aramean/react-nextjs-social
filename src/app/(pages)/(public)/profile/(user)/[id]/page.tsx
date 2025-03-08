@@ -31,6 +31,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
           <Card
             key={key}
             title={item.profile?.firstName}
+            titleHref="#"
             text={item.message}
             createdAt={formatTimeAgo(item.created)}
           />

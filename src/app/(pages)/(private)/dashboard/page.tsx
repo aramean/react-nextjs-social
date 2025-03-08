@@ -38,7 +38,7 @@ export default function Dashboard() {
           <Card
             key={key}
             title={item.profile?.firstName}
-            titleHref={`/profile/${item.userId}`}
+            titleHref="#"
             text={item.message}
             createdAt={formatTimeAgo(item.created)}
           />
