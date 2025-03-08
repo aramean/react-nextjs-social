@@ -9,7 +9,7 @@ import PostSkeleton from "@/components/partials/postSkeleton"
 
 export default function Page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params)
-  const { loading, data } = useFeed()
+  const { loading, data } = useFeed(id)
   const { loadingProfile, dataProfile } = useProfile(id)
 
   return (
@@ -30,6 +30,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
         {data.map((item, key) => (
           <Card
             key={key}
+            title={item.profile?.firstName}
             text={item.message}
             createdAt={formatTimeAgo(item.created)}
           />

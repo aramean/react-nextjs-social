@@ -37,7 +37,7 @@ export default function Dashboard() {
         {data.map((item, key) => (
           <Card
             key={key}
-            title="User"
+            title={item.profile?.firstName}
             titleHref={`/profile/${item.userId}`}
             text={item.message}
             createdAt={formatTimeAgo(item.created)}
@@ -50,7 +50,7 @@ export default function Dashboard() {
           {data.map((item, key) => (
             <Card
               key={key}
-              title="User"
+              title={item.profile?.firstName}
               titleHref={`/profile/${item.userId}`}
               text={item.message}
               bare={true}
