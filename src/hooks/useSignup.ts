@@ -23,8 +23,11 @@ export function useSignup(): UseSignupResult {
     try {
       const user = await account.create(ID.unique(), email, password, name)
 
+      // Use the automatically generated user ID from Appwrite
+      const userId = user.$id
+
       try {
-        await databases.createDocument(DATABASE, COLLECTION_PROFILE, ID.unique(),
+        await databases.createDocument(DATABASE, COLLECTION_PROFILE, userId,
           {
             userId: user.$id // Link profile to auth user
           }
