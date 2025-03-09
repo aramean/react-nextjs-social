@@ -20,7 +20,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
       <HeaderStatus />
     </header>
     <main className="bg-zinc-50 py-8 sm:py-14">
-      <div className="max-w-7xl m-auto mt-5">{children}</div>
+      {children}
     </main>
   </>)
 }
