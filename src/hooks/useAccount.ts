@@ -1,17 +1,19 @@
 "use client"
 
 import { useState } from "react"
-import { account, exception } from "@/lib/appwrite"
+import { account, storage, exception } from "@/lib/appwrite"
+import { BUCKET_AVATAR } from "@constants"
 
-interface UseLoginResult {
+interface UseAccountResult {
   isLoading: boolean
   error: string | null
   getData: () => Promise<object>
   updateName: (name: string) => Promise<void>
   updateEmail: (email: string, password: string) => Promise<void>
+  uploadPicture: (file: File) => Promise<void>
 }
 
-export function useAccount(): UseLoginResult {
+export function useAccount(): UseAccountResult {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
@@ -51,5 +53,18 @@ export function useAccount(): UseLoginResult {
     }
   }
 
-  return { isLoading, error, getData, updateName, updateEmail }
+  const uploadPicture = async (file: File): Promise<void> => {
+    setIsLoading(true)
+    setError(null)
+    try {
+      const userId = (await account.get()).$id
+      await storage.createFile(BUCKET_AVATAR, userId, file)
+      setIsLoading(false)
+    } catch (err) {
+      setIsLoading(false)
+      setError(exception(err))
+    }
+  }
+
+  return { isLoading, error, getData, updateName, updateEmail, uploadPicture }
 }
