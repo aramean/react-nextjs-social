@@ -80,7 +80,7 @@ export function useFeed(userId?: string): FeedProps {
     }
 
     fetchData()
-  }, [])
+  }, [userId])
 
   return { userId, loading, data }
 }
