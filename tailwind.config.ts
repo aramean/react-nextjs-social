@@ -11,6 +11,9 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)"
+      },
+      screens: {
+        "xs": "30rem"
       }
     }
   },
