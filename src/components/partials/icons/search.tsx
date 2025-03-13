@@ -17,7 +17,7 @@ const IconMagnifyingGlass = ({ size = "lg", color = "inherit", position = false 
     xxl: "w-7"
   }[size]
 
-  const positionClass = position ? "absolute left-2 top-2.5" : ""
+  const positionClass = position ? "absolute left-2.5 top-2.5" : ""
 
   return (<MagnifyingGlassIcon className={`flex content-[''] ${sizeClass} ${color} ${positionClass}`} />)
 }

@@ -8,10 +8,11 @@ interface InputTextProps {
   icon?: boolean
   textSize?: string
   width?: string
+  responsive?: string
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-const InputText = ({ value = "", placeholder = "", height = "md", indent = "none", textSize = "md", icon = false, width = "full", onChange }: InputTextProps) => {
+const InputText = ({ value = "", placeholder = "", height = "md", indent = "none", textSize = "md", icon = false, width = "full", responsive = "", onChange }: InputTextProps) => {
   const heightClass = {
     sm: "h-9",
     md: "h-10",
@@ -31,7 +32,7 @@ const InputText = ({ value = "", placeholder = "", height = "md", indent = "none
     <><label className="flex w-full relative text-gray-400 focus-within:text-gray-600">
       {icon && <IconMagnifyingGlass position={true} />}
       <input
-        className={`flex bg-white text-black indent-3 border border-spacing-1 rounded-md border-slate-500 shadow-sm focus:shadow-md w-${width} focus:border-slate-800 ${heightClass} text-${textSize} ${indentClass}`}
+        className={`flex bg-white text-black indent-3.5 border border-spacing-1 rounded-md border-slate-500 shadow-sm focus:shadow-md w-${width} focus:border-slate-800 ${heightClass} text-${textSize} ${indentClass} ${responsive}`}
         type="text"
         value={value}
         placeholder={placeholder}

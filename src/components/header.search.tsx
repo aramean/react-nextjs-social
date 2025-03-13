@@ -24,6 +24,8 @@ const HeaderSearch = () => {
       height="md"
       icon={true}
       indent="xl"
+      responsive="sm:w-2/3 md:w-2/4 lg:w-full"
+      width="9"
       value={search}
       onChange={e => setSearch(e.target.value)}
     ></InputText>
