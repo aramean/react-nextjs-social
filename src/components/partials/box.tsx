@@ -1,3 +1,5 @@
+"use client"
+
 import Heading from "@/components/partials/heading"
 
 interface BoxProps {

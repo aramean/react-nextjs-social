@@ -1,3 +1,5 @@
+"use client"
+
 import { ArrowLeftIcon } from "@heroicons/react/16/solid"
 
 interface IconArrowLeftProps {

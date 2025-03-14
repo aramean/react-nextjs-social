@@ -1,3 +1,5 @@
+"use client"
+
 interface InputTextAreaProps {
   value?: string
   placeholder?: string

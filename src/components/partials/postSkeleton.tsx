@@ -1,3 +1,5 @@
+"use client"
+
 export const PostSkeleton = () => {
   return (
     <div className="bg-white border border-gray-300 rounded-b p-5 flex flex-col gap-3 animate-pulse mt-3">

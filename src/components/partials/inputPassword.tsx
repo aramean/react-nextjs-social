@@ -1,3 +1,5 @@
+"use client"
+
 interface InputPasswordProps {
   value?: string
   placeholder?: string

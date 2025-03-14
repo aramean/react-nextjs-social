@@ -1,3 +1,5 @@
+"use client"
+
 import { ChevronRightIcon } from "@heroicons/react/16/solid"
 import Link from "next/link"
 

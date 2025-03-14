@@ -1,3 +1,5 @@
+"use client"
+
 interface ButtonProps {
   value: string
   disabled?: boolean

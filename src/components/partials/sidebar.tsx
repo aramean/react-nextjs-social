@@ -1,3 +1,5 @@
+"use client"
+
 import MenuItem from "@/components/partials/menuItem"
 
 interface SidebarProps {

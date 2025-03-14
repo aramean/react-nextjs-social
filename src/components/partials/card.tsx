@@ -1,3 +1,5 @@
+"use client"
+
 import { UserIcon, LockClosedIcon, EllipsisHorizontalIcon } from "@heroicons/react/16/solid"
 import Link from "next/link"
 

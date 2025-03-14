@@ -1,3 +1,5 @@
+"use client"
+
 import { formatDistanceToNow, parseISO } from "date-fns"
 
 export const formatTimeAgo = (isoDate: string) => {

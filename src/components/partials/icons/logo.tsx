@@ -1,3 +1,5 @@
+"use client"
+
 import { UserGroupIcon } from "@heroicons/react/24/solid"
 
 interface IconLogoProps {

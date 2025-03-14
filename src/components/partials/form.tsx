@@ -1,3 +1,5 @@
+"use client"
+
 interface FormProps {
   children: React.ReactNode
   className?: string

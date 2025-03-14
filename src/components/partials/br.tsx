@@ -1,3 +1,5 @@
+"use client"
+
 interface BrProps {
   height?: "none" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl"
 }

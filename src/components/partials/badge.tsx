@@ -1,3 +1,5 @@
+"use client"
+
 interface BadgeProps {
   number?: number
   children?: React.ReactNode

@@ -1,3 +1,5 @@
+"use client"
+
 import IconMagnifyingGlass from "./icons/search"
 
 interface InputTextProps {

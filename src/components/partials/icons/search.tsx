@@ -1,3 +1,5 @@
+"use client"
+
 import { MagnifyingGlassIcon } from "@heroicons/react/16/solid"
 
 interface IconBackProps {
