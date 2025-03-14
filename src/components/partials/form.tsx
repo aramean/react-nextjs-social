@@ -5,7 +5,7 @@ interface FormProps {
 }
 
 const Form = ({ children, className = "", onSubmit }: FormProps) => {
-  return (<form className={`flex w-full w- w-${className}`} onSubmit={onSubmit}>{children}</form>)
+  return (<form className={`flex flex-col w-full w-${className}`} onSubmit={onSubmit}>{children}</form>)
 }
 
 export default Form
