@@ -41,8 +41,11 @@
       "@components/*": [
         "./src/app/components/*"
       ],
-      "@pages/*": [
+      "@pages/public/*": [
         "./src/app/(pages)/(public)/*/page.tsx"
+      ],
+      "@pages/private/*": [
+        "./src/app/(pages)/(private)/*/page.tsx"
       ]
     }
   },
