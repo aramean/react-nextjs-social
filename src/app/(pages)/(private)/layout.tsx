@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import IconLogo from "@/components/partials/icons/logo"
-import HeaderSearch from "@/components/header.search"
+import HeaderSearch from "@/components/forms/header.search"
 import HeaderStatus from "@/components/header.status"
 import { useAuthCheck } from "@/hooks/useAuthCheck"
 

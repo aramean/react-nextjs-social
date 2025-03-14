@@ -2,7 +2,7 @@
 //import { redirect } from "next/navigation"
 import Link from "next/link"
 import IconLogo from "@/components/partials/icons/logo"
-import HeaderSearch from "@/components/header.search"
+import HeaderSearch from "@/components/forms/header.search"
 import HeaderStatus from "@/components/header.status"
 
 export default async function Layout({ children }: { children: React.ReactNode }) {
