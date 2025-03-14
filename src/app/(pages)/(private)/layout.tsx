@@ -1,17 +1,14 @@
-//import { getAuthToken } from "@/utils/cookies"
-//import { redirect } from "next/navigation"
+"use client"
+
 import Link from "next/link"
 import IconLogo from "@/components/partials/icons/logo"
 import HeaderSearch from "@/components/header.search"
 import HeaderStatus from "@/components/header.status"
+import { useAuthCheck } from "@/hooks/useAuthCheck"
 
-export default async function Layout({ children }: { children: React.ReactNode }) {
-
-  /*if (!await getAuthToken()) {
-    return redirect("/login")
-  }*/
-
-  return (<>
+export default function Layout({ children }: { children: React.ReactNode }) {
+  const { isLogged } = useAuthCheck()
+  return isLogged && (<>
     <header className="flex bg-black border-b border-gray-200 shadow-md gap-4 fixed top-0 inset-x-0 z-100 h-16 items-center px-4">
       <Link href="/dashboard">
         <IconLogo color="#ffffff" size="30" />

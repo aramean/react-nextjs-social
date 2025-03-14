@@ -2,20 +2,24 @@
 
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
-import { account } from "@/lib/appwrite"
+import { getAuthToken } from "@/utils/auth"
 
 export function useAuthCheck() {
-  const [loading, setLoading] = useState(true)
-  const [user, setUser] = useState(null)
+  const [isLoading, setIsLoading] = useState(true)
+  const [isLogged, setIsLogged] = useState(false)
   const router = useRouter()
 
   useEffect(() => {
-    account
-      .get()
-      .then(() => router.push("/dashboard"))
-      .catch(() => setUser(null))
-      .finally(() => setLoading(false))
+    const token = getAuthToken()
+    if (token) {
+      setIsLogged(true)
+      router.push("/dashboard")
+    } else {
+      router.push("/")
+      setIsLogged(false)
+    }
+    setIsLoading(false)
   }, [router])
 
-  return { user, loading }
+  return { isLogged, isLoading }
 }
