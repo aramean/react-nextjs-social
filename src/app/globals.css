@@ -47,7 +47,3 @@ h2 {
 h3 {
   @apply text-lg;
 }
-
-button {
-  @apply font-semibold;
-}
