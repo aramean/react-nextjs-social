@@ -33,7 +33,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
               <ul>
                 <li>{item.sex}</li>
                 <Br />
-                <li><b>Member since:</b> {formatTimeAgo(item.created)}</li>
+              <li><b>Member since:</b> {formatTimeAgo(dataProfile?.created)}</li>
               </ul>
             </Box>
           ))}
