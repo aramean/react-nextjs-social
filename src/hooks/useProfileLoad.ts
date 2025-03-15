@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { databases, Query } from "@/lib/appwrite"
+import { databases } from "@/lib/appwrite"
 import { DATABASE, COLLECTION_PROFILE } from "@constants"
 
 interface ProfileItem {
@@ -39,19 +39,19 @@ export function useProfile(userId: string): ProfileProps {
 
     const fetchData = async () => {
       try {
-        const response = await databases.listDocuments(
+        const response = await databases.getDocument(
           DATABASE,
           COLLECTION_PROFILE,
-          [Query.equal("userId", userId)]
+          userId
         )
 
-        const document = response.documents[0]
-        const profileItem = document ? {
-          firstName: document.firstName || "",
-          middleName: document.middleName || "",
-          lastName: document.lastName || "",
-          sex: document.sex,
-          created: document.$createdAt
+        const data = response
+        const profileItem = data ? {
+          firstName: data.firstName || "",
+          middleName: data.middleName || "",
+          lastName: data.lastName || "",
+          sex: data.sex,
+          created: data.$createdAt
         } : undefined
 
         setDataProfile(profileItem)
