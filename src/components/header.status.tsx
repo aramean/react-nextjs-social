@@ -34,6 +34,7 @@ const HeaderStatus = () => {
       </Badge>
 
       <DropDown
+        bare={true}
         buttonLabel="⋮"
         options={[
           { label: "Profile", value: "profile" },

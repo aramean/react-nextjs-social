@@ -9,26 +9,27 @@ interface Option {
 
 interface DropDownProps {
   options: Option[]
+  bare?: boolean
   buttonIcon?: boolean
   buttonLabel?: string
   onSelect?: (option: Option) => void
 }
 
-const DropDown = ({ options, buttonIcon = false, buttonLabel = "Options", onSelect }: DropDownProps) => {
+const DropDown = ({ options, bare = false, buttonIcon = false, buttonLabel = "Options", onSelect }: DropDownProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="relative inline-block text-left">
+    <div className={`relative h-100 inline-block ${bare ? "text-white" : "bg-white shadow-xs rounded-md"}`}>
       <button
         type="button"
-        className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 shadow-xs ring-gray-300 ring-inset hover:bg-gray-50"
+        className="inline-flex w-full h-full rounded-md px-3 py-2 text-xl font-bold text-gray-900 text-white"
         onClick={() => setIsOpen(!isOpen)}
       >
         {buttonIcon ? buttonIcon : buttonLabel}
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white ring-1 shadow-lg ring-black/5">
+        <div className="absolute right-0 z-30 mt-0 w-56 origin-top-right rounded-md bg-white shadow-lg ring-black/5">
           <div className="py-1">
             {options.map((option, index) => (
               <button
