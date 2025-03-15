@@ -1,6 +1,6 @@
-"use client" // Mark this component as a client component
+"use client"
 
-import { Suspense } from "react" // Import Suspense
+import { Suspense } from "react"
 import { formatTimeAgo } from "@/utils/date"
 import { useSearch } from "@/hooks/useSearchLoad"
 import Card from "@/components/partials/card"
