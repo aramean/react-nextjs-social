@@ -2,6 +2,7 @@
 
 import { UserIcon, LockClosedIcon, EllipsisHorizontalIcon } from "@heroicons/react/16/solid"
 import Link from "next/link"
+import Box from "./box"
 
 interface CardProps {
   picture?: string
@@ -21,7 +22,7 @@ const Card = ({ picture = "", title = "", titleHref = "", text = "", bare = fals
         style={{ backgroundImage: `url(${picture})` }}
       />
     )}
-    <div className={`${bare ? "" : "border-r border-b border-l border-gray-200 rounded-b p-5 flex flex-col justify-between shadow-sm mt-3"}`}>
+    <Box bare={bare}>
       <div className="flex">
         <UserIcon className="w-11 h-10 mr-2 mb-1 p-1 rounded-full bg-slate-200 text-white" />
         <div className="text-sm w-full mt-2 flex flex-col">
@@ -37,7 +38,7 @@ const Card = ({ picture = "", title = "", titleHref = "", text = "", bare = fals
       <div className="mb-1">
         <p className="text-gray-700 text-base">{text}</p>
       </div>
-    </div>
+    </Box>
   </div>)
 }
 
