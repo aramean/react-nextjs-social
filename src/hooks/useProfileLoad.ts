@@ -5,6 +5,9 @@ import { databases, Query } from "@/lib/appwrite"
 import { DATABASE, COLLECTION_PROFILE } from "@constants"
 
 interface ProfileItem {
+  firstName: string
+  middleName: string
+  lastName: string
   sex: string
   created: string
 }
@@ -33,7 +36,10 @@ export function useProfile(userId: string): ProfileProps {
         )
 
         const document = response.documents[0]
-        const profileItem: ProfileItem | undefined = document ? {
+        const profileItem = document ? {
+          firstName: document.firstName,
+          middleName: document.middleName,
+          lastName: document.lastName,
           sex: document.sex,
           created: document.$createdAt
         } : undefined
