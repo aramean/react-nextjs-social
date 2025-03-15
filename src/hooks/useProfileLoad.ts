@@ -15,11 +15,21 @@ interface ProfileItem {
 interface ProfileProps {
   loadingProfile: boolean
   dataProfile?: ProfileItem
+  firstName: string
+  middleName: string
+  lastName: string
+  setFirstName: React.Dispatch<React.SetStateAction<string>>
+  setMiddleName: React.Dispatch<React.SetStateAction<string>>
+  setLastName: React.Dispatch<React.SetStateAction<string>>
 }
 
 export function useProfile(userId: string): ProfileProps {
   const [dataProfile, setDataProfile] = useState<ProfileItem | undefined>(undefined)
   const [loadingProfile, setLoadingProfile] = useState(true)
+
+  const [firstName, setFirstName] = useState<string>("")
+  const [middleName, setMiddleName] = useState<string>("")
+  const [lastName, setLastName] = useState<string>("")
 
   useEffect(() => {
     if (!userId) {
@@ -37,14 +47,21 @@ export function useProfile(userId: string): ProfileProps {
 
         const document = response.documents[0]
         const profileItem = document ? {
-          firstName: document.firstName,
-          middleName: document.middleName,
-          lastName: document.lastName,
+          firstName: document.firstName || "",
+          middleName: document.middleName || "",
+          lastName: document.lastName || "",
           sex: document.sex,
           created: document.$createdAt
         } : undefined
 
         setDataProfile(profileItem)
+
+        // Update the state for first name, middle name, and last name
+        if (profileItem) {
+          setFirstName(profileItem.firstName)
+          setMiddleName(profileItem.middleName)
+          setLastName(profileItem.lastName)
+        }
       } catch (error) {
         console.error("Error fetching profile:", error)
       } finally {
@@ -55,5 +72,14 @@ export function useProfile(userId: string): ProfileProps {
     fetchData()
   }, [userId])
 
-  return { loadingProfile, dataProfile }
+  return {
+    loadingProfile,
+    dataProfile,
+    firstName,
+    middleName,
+    lastName,
+    setFirstName,
+    setMiddleName,
+    setLastName
+  }
 }

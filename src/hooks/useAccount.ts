@@ -32,13 +32,14 @@ export function useAccount(): UseAccountResult {
   }
 
   const updateName = async (name: string) => {
-    setIsLoading(true)
     setError(null)
     try {
+      setIsLoading(true)
       await account.updateName(name)
     } catch (err) {
-      setIsLoading(false)
       setError(exception(err))
+    } finally {
+      setIsLoading(false)
     }
   }
 
