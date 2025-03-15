@@ -37,7 +37,7 @@ export default function Dashboard() {
         {data.map((item, key) => (
           <Card
             key={key}
-            title={item.profile?.firstName}
+            title={[item.profile?.firstName, item.profile?.middleName, item.profile?.lastName].join(" ") || "..."}
             titleHref="#"
             text={item.message}
             createdAt={formatTimeAgo(item.created)}
