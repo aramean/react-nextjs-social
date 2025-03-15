@@ -54,12 +54,12 @@ export function useFeed(userId?: string): FeedProps {
           const profilesResponse = await databases.listDocuments(
             DATABASE,
             COLLECTION_PROFILE,
-            [Query.equal("userId", userIds)]
+            [Query.equal("$id", userIds)]
           )
 
           // Convert profiles array into a Map for fast lookup
           profilesResponse?.documents?.forEach((profile) => {
-            profilesMap.set(profile.userId, profile)
+            profilesMap.set(profile.$id, profile)
           })
         }
 
