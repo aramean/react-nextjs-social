@@ -7,8 +7,10 @@ import Alert from "@/components/partials/alert"
 import Button from "@/components/partials/button"
 import { useProfile } from "@/hooks/useProfileLoad"
 import { getAuthToken } from "@/utils/auth"
+import { useProfileUpdate } from "@/hooks/useProfileUpdate"
 
 const SettingsFormName = () => {
+  const currentId = getAuthToken()
   const {
     firstName,
     middleName,
@@ -17,13 +19,15 @@ const SettingsFormName = () => {
     setMiddleName,
     setLastName,
     loadingProfile
-  } = useProfile(getAuthToken())
+  } = useProfile(currentId)
 
+  const { updateProfile } = useProfileUpdate(currentId)
   const { isLoading, error, updateName } = useAccount()
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
-    return await updateName(firstName + " " + middleName + " " + lastName)
+    await updateProfile({ firstName, middleName, lastName })
+    await updateName([firstName, middleName, lastName].filter(Boolean).join(" "))
   }
 
   if (loadingProfile) return <div>Loading...</div>  // Show loading indicator while fetching

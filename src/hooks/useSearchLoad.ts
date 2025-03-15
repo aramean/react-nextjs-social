@@ -37,7 +37,7 @@ export function useSearch() {
           const profileItems: ProfileItem[] = response?.documents?.map((item) => ({
             message: item.message,
             userId: item.userId,
-            fullName: item.firstName + " " + (item.middleName ? item.middleName + " " : "") + item.lastName,
+            fullName: [item.firstName, item.middleName, item.lastName].filter(Boolean).join(" "),
             created: item.$createdAt
           }))
 
