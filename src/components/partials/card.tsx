@@ -35,9 +35,9 @@ const Card = ({ picture = "", title = "", titleHref = "", text = "", bare = fals
           <EllipsisHorizontalIcon className='w-5' />
         </p>
       </div>
-      <div className="mb-1">
+      {text && <div className="mb-1">
         <p className="text-gray-700 text-base">{text}</p>
-      </div>
+      </div>}
     </Box>
   </div>)
 }

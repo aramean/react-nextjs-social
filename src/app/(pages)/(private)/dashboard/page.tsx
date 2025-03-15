@@ -7,6 +7,7 @@ import Card from "@/components/partials/card"
 import FormFeed from "@/components/forms/feed"
 import PostSkeleton from "@/components/partials/postSkeleton"
 import Box from "@/components/partials/box"
+import Br from "@/components/partials/br"
 
 export default function Dashboard() {
   const { loading, data } = useFeed()
@@ -48,14 +49,13 @@ export default function Dashboard() {
       <div className="w-1/4 p-3 hidden md:block">
         <Box title="People you may know" bare={true}>
           {data.map((item, key) => (
-            <Card
+            <><Br height="lg" /><Card
               key={key}
               title={item.profile?.firstName}
               titleHref={`/profile/${item.userId}`}
-              text={item.message}
               bare={true}
               createdAt={formatTimeAgo(item.created)}
-            />
+            /></>
           ))}
         </Box>
       </div>
