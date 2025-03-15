@@ -28,15 +28,13 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
       <div className="flex">
         <div className="w-1/4 p-3 hidden md:block">
           {loadingProfile && <PostSkeleton />}
-          {dataProfile.map((item, key) => (
-            <Box key={key}>
-              <ul>
-                <li>{item.sex}</li>
-                <Br />
+          <Box>
+            <ul>
+              <li>{dataProfile?.sex}</li>
+              <Br />
               <li><b>Member since:</b> {formatTimeAgo(dataProfile?.created)}</li>
-              </ul>
-            </Box>
-          ))}
+            </ul>
+          </Box>
         </div>
 
         <div className="w-full md:w-2/4 p-3">

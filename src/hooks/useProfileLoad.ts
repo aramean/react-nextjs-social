@@ -10,39 +10,37 @@ interface ProfileItem {
 }
 
 interface ProfileProps {
-  userId: string
   loadingProfile: boolean
-  dataProfile: ProfileItem[]
+  dataProfile?: ProfileItem
 }
 
 export function useProfile(userId: string): ProfileProps {
-  const [dataProfile, setDataProfile] = useState<ProfileItem[]>([])
+  const [dataProfile, setDataProfile] = useState<ProfileItem | undefined>(undefined)
   const [loadingProfile, setLoadingProfile] = useState(true)
 
   useEffect(() => {
-    async function fetchData() {
-      if (!userId) {
-        setLoadingProfile(false)
-        return
-      }
+    if (!userId) {
+      setLoadingProfile(false)
+      return
+    }
 
+    const fetchData = async () => {
       try {
         const response = await databases.listDocuments(
           DATABASE,
           COLLECTION_PROFILE,
-          [
-            Query.equal("userId", userId)
-          ]
+          [Query.equal("userId", userId)]
         )
 
-        const profileItems: ProfileItem[] = response?.documents?.map((item) => ({
-          sex: item.sex,
-          created: item.$createdAt
-        }))
+        const document = response.documents[0]
+        const profileItem: ProfileItem | undefined = document ? {
+          sex: document.sex,
+          created: document.$createdAt
+        } : undefined
 
-        setDataProfile(profileItems)
+        setDataProfile(profileItem)
       } catch (error) {
-        console.error("Error fetching feeds:", error)
+        console.error("Error fetching profile:", error)
       } finally {
         setLoadingProfile(false)
       }
@@ -51,5 +49,5 @@ export function useProfile(userId: string): ProfileProps {
     fetchData()
   }, [userId])
 
-  return { userId, loadingProfile, dataProfile }
+  return { loadingProfile, dataProfile }
 }
