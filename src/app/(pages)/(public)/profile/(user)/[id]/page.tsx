@@ -42,7 +42,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
           {data.map((item, key) => (
             <Card
               key={key}
-              title={item.profile?.firstName}
+              title={[item.profile?.firstName, item.profile?.middleName, item.profile?.lastName].join(" ") || "..."}
               titleHref="#"
               text={item.message}
               createdAt={formatTimeAgo(item.created)}
