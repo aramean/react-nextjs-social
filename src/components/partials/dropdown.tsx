@@ -22,7 +22,7 @@ const DropDown = ({ options, bare = false, buttonIcon = false, buttonLabel = "Op
     <div className={`relative h-100 inline-block ${bare ? "text-white" : "bg-white shadow-xs rounded-md"}`}>
       <button
         type="button"
-        className="inline-flex w-full h-full rounded-md px-3 py-2 text-xl font-bold text-gray-900 text-white"
+        className="inline-flex w-full h-full rounded-md px-3 py-2 text-xl font-bold text-white"
         onClick={() => setIsOpen(!isOpen)}
       >
         {buttonIcon ? buttonIcon : buttonLabel}
