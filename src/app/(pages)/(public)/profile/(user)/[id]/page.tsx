@@ -27,7 +27,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
     <div className="max-w-7xl m-auto mt-5">
       <div className="flex">
         <div className="w-1/4 p-3 hidden md:block">
-          {loadingProfile && <><PostSkeleton /></>}
+          {loadingProfile && <PostSkeleton />}
           {dataProfile.map((item, key) => (
             <Box key={key}>
               <ul>
@@ -40,7 +40,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
         </div>
 
         <div className="w-full md:w-2/4 p-3">
-          {loading && <><PostSkeleton /><PostSkeleton /><PostSkeleton /></>}
+          {loading && <PostSkeleton repeat={5} />}
           {data.map((item, key) => (
             <Card
               key={key}

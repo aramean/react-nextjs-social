@@ -31,13 +31,7 @@ function SearchResults() {
   const { loading, data } = useSearch()
 
   if (loading) {
-    return (
-      <>
-        <PostSkeleton />
-        <PostSkeleton />
-        <PostSkeleton />
-      </>
-    )
+    return (<PostSkeleton repeat={10} />)
   }
 
   return (

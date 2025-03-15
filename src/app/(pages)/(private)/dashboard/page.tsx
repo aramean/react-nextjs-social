@@ -24,7 +24,7 @@ export default function Dashboard() {
 
       <div className="w-full md:w-2/4 p-3">
         <FormFeed setPendingPosts={setPendingPosts} />
-        {loading && <><PostSkeleton /><PostSkeleton /><PostSkeleton /></>}
+        {loading && <PostSkeleton repeat={7} />}
         {pendingPosts.map((item, key) => (
           <Card
             key={key}
