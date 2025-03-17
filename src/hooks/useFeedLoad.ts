@@ -11,6 +11,7 @@ interface FeedProps {
 }
 
 interface FeedItem {
+  id: string
   message: string
   userId: string
   created: string
@@ -38,6 +39,7 @@ export function useFeed(userId?: string): FeedProps {
         )
 
         const feedItems: FeedItem[] = response?.documents?.map((item) => ({
+          id: item.$id,
           message: item.message,
           userId: item.userId,
           created: item.$createdAt,
