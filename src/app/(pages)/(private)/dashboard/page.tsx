@@ -7,10 +7,11 @@ import Card from "@/components/partials/card"
 import FormFeed from "@/components/forms/feed"
 import PostSkeleton from "@/components/partials/postSkeleton"
 import Box from "@/components/partials/box"
-import Br from "@/components/partials/br"
+import { useFriendSuggestion } from "@/hooks/useFriendSuggestion"
 
 export default function Dashboard() {
   const { loading, data } = useFeed()
+  const { dataFriendSuggestion } = useFriendSuggestion()
   const [pendingPosts, setPendingPosts] = useState<{ message: string, createdAt: Date }[]>([])
 
   return (
@@ -26,18 +27,18 @@ export default function Dashboard() {
       <div className="w-full md:w-2/4 p-3">
         <FormFeed setPendingPosts={setPendingPosts} />
         {loading && <PostSkeleton repeat={7} />}
-        {pendingPosts.map((item, key) => (
+        {pendingPosts.map((item) => (
           <Card
-            key={key}
+            key={`pending-${item.createdAt}`}
             title="User"
             titleHref=""
             text={item.message}
             createdAt={formatTimeAgo(item.createdAt.toISOString())}
           />
         ))}
-        {data.map((item, key) => (
+        {data.map((item) => (
           <Card
-            key={key}
+            key={`post-${item.id}`}
             title={[item.profile?.firstName, item.profile?.middleName, item.profile?.lastName].join(" ") || "..."}
             titleHref="#"
             text={item.message}
@@ -48,14 +49,13 @@ export default function Dashboard() {
 
       <div className="w-1/4 p-3 hidden md:block">
         <Box title="People you may know" bare={true}>
-          {data.map((item, key) => (
-            <><Br height="lg" /><Card
-              key={key}
-              title={item.profile?.firstName}
+          {dataFriendSuggestion.map((item) => (
+            <Card
+              key={`suggestion-${item.userId}`}
+              title={[item.firstName, item.middleName, item.lastName].join(" ") || "..."}
               titleHref={`/profile/${item.userId}`}
               bare={true}
-              createdAt={formatTimeAgo(item.created)}
-            /></>
+            />
           ))}
         </Box>
       </div>
