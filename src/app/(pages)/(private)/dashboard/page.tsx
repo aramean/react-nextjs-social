@@ -42,6 +42,7 @@ export default function Dashboard() {
             title={[item.profile?.firstName, item.profile?.middleName, item.profile?.lastName].join(" ") || "..."}
             titleHref="#"
             text={item.message}
+            menu={true}
             createdAt={formatTimeAgo(item.created)}
           />
         ))}
@@ -54,6 +55,8 @@ export default function Dashboard() {
               key={`suggestion-${item.userId}`}
               title={[item.firstName, item.middleName, item.lastName].join(" ") || "..."}
               titleHref={`/profile/${item.userId}`}
+              lock={false}
+              controls={true}
               bare={true}
             />
           ))}

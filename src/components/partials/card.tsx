@@ -3,17 +3,21 @@
 import { UserIcon, LockClosedIcon, EllipsisHorizontalIcon } from "@heroicons/react/16/solid"
 import Link from "next/link"
 import Box from "./box"
+import Button from "./button"
 
 interface CardProps {
   picture?: string
   title?: string
   titleHref?: string
+  menu?: boolean
   text?: string
+  lock?: boolean
+  controls?: boolean
   bare?: boolean
   createdAt?: string
 }
 
-const Card = ({ picture = "", title = "", titleHref = "", text = "", bare = false, createdAt }: CardProps) => {
+const Card = ({ picture = "", title = "", titleHref = "", menu = false, text = "", lock = true, controls = false, bare = false, createdAt }: CardProps) => {
   return (<div className={`width-full rounded-md ${bare ? "" : "bg-white"}`}>
     {picture && (
       <div
@@ -29,14 +33,18 @@ const Card = ({ picture = "", title = "", titleHref = "", text = "", bare = fals
           <p className="text-gray-900 leading-none">
             {titleHref ? <Link href={titleHref}>{title}</Link> : title}
           </p>
-          <p className="text-gray-600 text-xs">{createdAt} * <LockClosedIcon className='mr-1 w-3 inline-flex' /></p>
+          <p className="text-gray-600 text-xs">{createdAt}{lock && <> • <LockClosedIcon className='mr-1 w-3 inline-flex' /></>}</p>
         </div>
-        <p className="text-sm text-gray-600 flex place-items-start">
+        {menu && <p className="text-sm text-gray-600 flex place-items-start">
           <EllipsisHorizontalIcon className='w-5' />
-        </p>
+        </p>}
       </div>
       {text && <div className="mb-1">
         <p className="text-gray-700 text-base">{text}</p>
+      </div>}
+      {controls && <div className="flex flex-row gap-3">
+        <Button value="Add friend" size="xs"></Button>
+        <Button value="Remove" outlined={true} size="xs"></Button>
       </div>}
     </Box>
   </div>)
