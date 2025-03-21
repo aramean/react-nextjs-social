@@ -4,6 +4,7 @@ import { UserIcon, LockClosedIcon, EllipsisHorizontalIcon } from "@heroicons/rea
 import Link from "next/link"
 import Box from "./box"
 import Button from "./button"
+import Hr from "./hr"
 
 interface CardProps {
   picture?: string
@@ -12,12 +13,13 @@ interface CardProps {
   menu?: boolean
   text?: string
   lock?: boolean
+  hr?: "xs" | "md" | "lg" | "xl"
   controls?: boolean
   bare?: boolean
   createdAt?: string
 }
 
-const Card = ({ picture = "", title = "", titleHref = "", menu = false, text = "", lock = true, controls = false, bare = false, createdAt }: CardProps) => {
+const Card = ({ picture = "", title = "", titleHref = "", menu = false, text = "", lock = true, hr, controls = false, bare = false, createdAt }: CardProps) => {
   return (<div className={`width-full rounded-md ${bare ? "" : "bg-white"}`}>
     {picture && (
       <div
@@ -47,6 +49,7 @@ const Card = ({ picture = "", title = "", titleHref = "", menu = false, text = "
         <Button value="Remove" outlined={true} size="xs"></Button>
       </div>}
     </Box>
+    {hr && <Hr size={hr} />}
   </div>)
 }
 

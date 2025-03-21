@@ -56,6 +56,7 @@ export default function Dashboard() {
               title={[item.firstName, item.middleName, item.lastName].join(" ") || "..."}
               titleHref={`/profile/${item.userId}`}
               lock={false}
+              hr="xl"
               controls={true}
               bare={true}
             />
