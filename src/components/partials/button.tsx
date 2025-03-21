@@ -2,14 +2,15 @@
 
 interface ButtonProps {
   value: string
-  size?: "xs" | "md" | "lg"
+  size?: "xs" | "sm" | "md" | "lg"
   outlined?: boolean
   disabled?: boolean
 }
 const Button = ({ value, size = "md", disabled = false, outlined = false }: ButtonProps) => {
 
   const sizeClass = {
-    xs: "px-4 text-sm h-8",
+    xs: "px-4 text-xs h-8",
+    sm: "px-4 text-sm h-8",
     md: "px-8 text-base hover:shadow-md h-11",
     lg: "px-8 text-lg h-12"
   }[size]

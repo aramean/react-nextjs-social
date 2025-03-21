@@ -44,7 +44,7 @@ const Card = ({ picture = "", title = "", titleHref = "", menu = false, text = "
       {text && <div className="mb-1">
         <p className="text-gray-700 text-base">{text}</p>
       </div>}
-      {controls && <div className="flex flex-row gap-3">
+      {controls && <div className="flex flex-row gap-3 mt-1">
         <Button value="Add friend" size="xs"></Button>
         <Button value="Remove" outlined={true} size="xs"></Button>
       </div>}
