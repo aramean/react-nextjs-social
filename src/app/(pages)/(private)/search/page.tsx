@@ -41,6 +41,7 @@ function SearchResults() {
           key={key}
           title={item.fullName}
           titleHref={`/profile/${item.userId}`}
+          avatar={item.avatarUrl}
           text={item.message}
           createdAt={formatTimeAgo(item.created)}
         />

@@ -10,6 +10,7 @@ interface CardProps {
   picture?: string
   title?: string
   titleHref?: string
+  avatar?: string | null
   menu?: boolean
   text?: string
   lock?: boolean
@@ -19,7 +20,7 @@ interface CardProps {
   createdAt?: string
 }
 
-const Card = ({ picture = "", title = "", titleHref = "", menu = false, text = "", lock = true, hr, controls = false, bare = false, createdAt }: CardProps) => {
+const Card = ({ picture = "", title = "", titleHref = "", avatar, menu = false, text = "", lock = true, hr, controls = false, bare = false, createdAt }: CardProps) => {
   return (<div className={`width-full rounded-md ${bare ? "" : "bg-white"}`}>
     {picture && (
       <div
@@ -30,7 +31,7 @@ const Card = ({ picture = "", title = "", titleHref = "", menu = false, text = "
     )}
     <Box bare={bare}>
       <div className="flex">
-        <UserIcon className="w-11 h-10 mr-2 mb-1 p-1 rounded-full bg-slate-200 text-white" />
+        {avatar ? <img src={avatar} className="w-11 mr-2 mb-1 p-0 rounded-full"></img> : <UserIcon className="w-11 mr-2 mb-1 p-1 rounded-full bg-slate-200 text-white" />}
         <div className="text-sm w-full mt-2 flex flex-col">
           <p className="text-gray-900 leading-none">
             {titleHref ? <Link href={titleHref}>{title}</Link> : title}
