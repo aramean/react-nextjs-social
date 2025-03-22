@@ -44,6 +44,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
               key={key}
               title={[item.profile?.firstName, item.profile?.middleName, item.profile?.lastName].join(" ") || "..."}
               titleHref="#"
+              avatar={item.profile?.avatarUrl}
               text={item.message}
               createdAt={formatTimeAgo(item.created)}
             />
