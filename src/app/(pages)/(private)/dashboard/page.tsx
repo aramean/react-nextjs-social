@@ -40,6 +40,7 @@ export default function Dashboard() {
           <Card
             key={`post-${item.id}`}
             title={[item.profile?.firstName, item.profile?.middleName, item.profile?.lastName].join(" ") || "..."}
+            avatar={item.profile?.avatarUrl}
             titleHref="#"
             text={item.message}
             menu={true}

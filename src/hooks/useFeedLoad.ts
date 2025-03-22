@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { databases, account, Query } from "@/lib/appwrite"
 import { DATABASE, COLLECTION_FEED, COLLECTION_PROFILE } from "@constants"
+import { fetchAvatars } from "@/utils/bucket"
 
 interface FeedProps {
   userId?: string
@@ -15,7 +16,11 @@ interface FeedItem {
   message: string
   userId: string
   created: string
-  profile: { firstName: string; lastName: string;[key: string]: unknown } | null // Explicitly define profile structure
+  profile: {
+    firstName: string
+    lastName: string;[key: string]: unknown
+    avatarUrl: string | null
+  } | null
 }
 
 export function useFeed(userId?: string): FeedProps {
@@ -59,9 +64,15 @@ export function useFeed(userId?: string): FeedProps {
             [Query.equal("$id", userIds)]
           )
 
+          const avatarMap = await fetchAvatars(userIds)
+
           // Convert profiles array into a Map for fast lookup
           profilesResponse?.documents?.forEach((profile) => {
-            profilesMap.set(profile.$id, profile)
+            const avatarUrl = avatarMap[profile.$id] || null
+            profilesMap.set(profile.$id, {
+              ...profile,
+              avatarUrl
+            })
           })
         }
 
