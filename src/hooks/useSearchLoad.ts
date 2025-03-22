@@ -1,8 +1,9 @@
 "use client"
 
 import { useEffect, useState, useMemo } from "react"
-import { databases, storage, Query } from "@/lib/appwrite"
-import { DATABASE, BUCKET_AVATAR, COLLECTION_PROFILE } from "@constants"
+import { databases, Query } from "@/lib/appwrite"
+import { fetchAvatars } from "@/utils/bucket"
+import { DATABASE, COLLECTION_PROFILE } from "@constants"
 import { useSearchParams } from "next/navigation"
 
 interface ProfileItem {
@@ -34,17 +35,9 @@ export function useSearch() {
               Query.orderDesc("$createdAt")
             ]
           )
+
           const userIds = response?.documents?.map((item) => item.$id)
-
-          // Fetch all user avatars in one request
-          const files = await storage.listFiles(BUCKET_AVATAR, [Query.contains("$id", userIds)])
-
-          // Create a map of user IDs to file URLs
-          const avatarMap: Record<string, string> = {}
-
-          files.files.forEach((file) => {
-            avatarMap[file.$id] = storage.getFileView(BUCKET_AVATAR, file.$id)
-          })
+          const avatarMap = await fetchAvatars(userIds)
 
           // Map profiles
           const profileItems: ProfileItem[] = response?.documents?.map((item) => ({
