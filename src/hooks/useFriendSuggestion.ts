@@ -27,13 +27,13 @@ export function useFriendSuggestion(userId?: string): FriendSuggestionProps {
   useEffect(() => {
     async function fetchData() {
       try {
-        const id = userId ? userId : (await account.get()).$id
+        const id = userId ?? (await account.get()).$id
 
         // Fetch all user profiles
         const profileResponse = await databases.listDocuments(
           DATABASE,
           COLLECTION_PROFILE,
-          [] // Fetch all profiles
+          [Query.notEqual("$id", [id])]
         )
 
         const userIds = profileResponse?.documents?.map((item) => item.$id)
