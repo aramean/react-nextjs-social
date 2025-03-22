@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { databases, account, Query } from "@/lib/appwrite"
 import { DATABASE, COLLECTION_PROFILE, COLLECTION_FOLLOW } from "@constants"
+import { fetchAvatars } from "@/utils/bucket"
 
 interface FriendSuggestionProps {
   userId?: string
@@ -16,6 +17,7 @@ interface FriendSuggestionItem {
   firstName: string
   middleName?: string
   lastName: string
+  avatarUrl?: string | null
 }
 
 export function useFriendSuggestion(userId?: string): FriendSuggestionProps {
@@ -34,14 +36,17 @@ export function useFriendSuggestion(userId?: string): FriendSuggestionProps {
           [] // Fetch all profiles
         )
 
+        const userIds = profileResponse?.documents?.map((item) => item.$id)
+        const avatarMap = await fetchAvatars(userIds)
+
         const allUsers: FriendSuggestionItem[] = profileResponse?.documents?.map((item) => ({
           userId: item.$id,
           created: item.$createdAt,
           firstName: item.firstName,
           middleName: item.middleName,
-          lastName: item.lastName
+          lastName: item.lastName,
+          avatarUrl: avatarMap[item.$id] || null
         }))
-
 
         // Fetch users the current user is following
         const followingResponse = await databases.listDocuments(

@@ -54,6 +54,7 @@ export default function Dashboard() {
             <Card
               key={`suggestion-${item.userId}`}
               title={[item.firstName, item.middleName, item.lastName].join(" ") || "..."}
+              avatar={item.avatarUrl}
               titleHref={`/profile/${item.userId}`}
               lock={false}
               hr="xl"
