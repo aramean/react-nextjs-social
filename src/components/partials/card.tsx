@@ -2,6 +2,7 @@
 
 import { UserIcon, LockClosedIcon, EllipsisHorizontalIcon } from "@heroicons/react/16/solid"
 import Link from "next/link"
+import Image from "next/image"
 import Box from "./box"
 import Button from "./button"
 import Hr from "./hr"
@@ -31,7 +32,7 @@ const Card = ({ picture = "", title = "", titleHref = "", avatar, menu = false, 
     )}
     <Box bare={bare}>
       <div className="flex">
-        {avatar ? <img src={avatar} className="w-11 mr-2 mb-1 p-0 rounded-full"></img> : <UserIcon className="w-11 mr-2 mb-1 p-1 rounded-full bg-slate-200 text-white" />}
+        {avatar ? <Image src={avatar} width="64" height="64" className="w-11 mr-2 mb-1 p-0 rounded-full" alt="" /> : <UserIcon className="w-11 mr-2 mb-1 p-1 rounded-full bg-slate-200 text-white" />}
         <div className="text-sm w-full mt-2 flex flex-col">
           <p className="text-gray-900 leading-none">
             {titleHref ? <Link href={titleHref}>{title}</Link> : title}
