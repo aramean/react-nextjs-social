@@ -4,6 +4,7 @@ import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { ID, account, databases, exception } from "@/lib/appwrite"
 import { DATABASE, COLLECTION_PROFILE } from "@constants"
+import { parseFullName } from "@/utils/name"
 
 interface UseSignupResult {
   isLoading: boolean
@@ -23,13 +24,15 @@ export function useSignup(): UseSignupResult {
     try {
       const user = await account.create(ID.unique(), email, password, name)
 
-      // Use the automatically generated user ID from Appwrite
       const userId = user.$id
+      const { firstName, middleName, lastName } = parseFullName(user.name)
 
       try {
         await databases.createDocument(DATABASE, COLLECTION_PROFILE, userId,
           {
-            userId: user.$id // Link profile to auth user
+            firstName: firstName,
+            middleName: middleName,
+            lastName: lastName
           }
         )
         console.log("Profile Created")
