@@ -7,6 +7,7 @@ interface UseAccountResult {
   isLoading: boolean
   error: string | null
   getData: () => Promise<object>
+  checkPassword: (password: string) => Promise<void>
   updateName: (name: string) => Promise<void>
   updateEmail: (email: string, password: string) => Promise<void>
 }
@@ -52,5 +53,17 @@ export function useAccount(): UseAccountResult {
     }
   }
 
-  return { isLoading, error, getData, updateName, updateEmail }
+  const checkPassword = async (password: string) => {
+    setIsLoading(true)
+    setError(null)
+    try {
+      await account.updatePassword(password, password)
+      setIsLoading(false)
+    } catch (err) {
+      setError(exception(err))
+      setIsLoading(false)
+    }
+  }
+
+  return { isLoading, error, getData, checkPassword, updateName, updateEmail }
 }
