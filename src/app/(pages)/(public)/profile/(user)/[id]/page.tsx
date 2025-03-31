@@ -15,7 +15,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
   const { loadingProfile, dataProfile } = useProfile(id)
 
   return (<>
-    <div className="bg-slate-300 h-60">
+    <div className="bg-slate-300 py-6">
       <div className="max-w-7xl m-auto">
         <Card
           avatarSize="xl"
