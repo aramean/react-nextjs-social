@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { useAccount } from "@/hooks/useAccount"
+import { useLogout } from "@/hooks/useLogout"
 import { accountRemoveSchema } from "@/schemas/settings"
 import InputPassword from "@/components/partials/inputPassword"
 import Form from "@/components/partials/form"
@@ -10,6 +11,7 @@ import Button from "@/components/partials/button"
 
 const SettingsRemove = () => {
   const { isLoading, error, checkPassword } = useAccount()
+  const { logout } = useLogout()
 
   const [password, setPassword] = useState("")
   const [formErrors, setFormErrors] = useState<{ name?: string, email?: string, password?: string, password2?: string }>({})
@@ -29,11 +31,16 @@ const SettingsRemove = () => {
       return
     }
 
-    return await checkPassword(password)
+    const isSuccess = await checkPassword(password)
+
+    if (isSuccess) {
+      await logout()
+    }
   }
 
   return (
     <Form onSubmit={handleRemoveAccount} className="flex flex-col w-full gap-4">
+      <Alert message="This will permanently remove your account and all associated data. This action cannot be undone." type="info" />
       {formErrors?.password && <small className="text-red-500 -mt-2">{formErrors.password}</small>}
       <InputPassword
         placeholder="Password"

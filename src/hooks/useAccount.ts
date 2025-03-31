@@ -5,15 +5,17 @@ import { account, exception } from "@/lib/appwrite"
 
 interface UseAccountResult {
   isLoading: boolean
+  isSuccess: boolean
   error: string | null
   getData: () => Promise<object>
-  checkPassword: (password: string) => Promise<void>
+  checkPassword: (password: string) => Promise<boolean>
   updateName: (name: string) => Promise<void>
   updateEmail: (email: string, password: string) => Promise<void>
 }
 
 export function useAccount(): UseAccountResult {
   const [isLoading, setIsLoading] = useState(false)
+  const [isSuccess, setIsSuccess] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
   const getData = async () => {
@@ -58,12 +60,16 @@ export function useAccount(): UseAccountResult {
     setError(null)
     try {
       await account.updatePassword(password, password)
-      setIsLoading(false)
+      setIsSuccess(true)
+      return true
     } catch (err) {
       setError(exception(err))
+      setIsSuccess(false)
+      return false
+    } finally {
       setIsLoading(false)
     }
   }
 
-  return { isLoading, error, getData, checkPassword, updateName, updateEmail }
+  return { isLoading, isSuccess, error, getData, checkPassword, updateName, updateEmail }
 }

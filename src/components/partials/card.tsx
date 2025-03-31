@@ -12,6 +12,7 @@ interface CardProps {
   title?: string
   titleHref?: string
   avatar?: string | null
+  avatarSize?: "xs" | "md" | "lg" | "xl"
   menu?: boolean
   text?: string
   lock?: boolean
@@ -21,7 +22,14 @@ interface CardProps {
   createdAt?: string
 }
 
-const Card = ({ picture = "", title = "", titleHref = "", avatar, menu = false, text = "", lock = true, hr, controls = false, bare = false, createdAt }: CardProps) => {
+const Card = ({ picture = "", title = "", titleHref = "", avatar, avatarSize = "xl", menu = false, text = "", lock = true, hr, controls = false, bare = false, createdAt }: CardProps) => {
+  const avatarSizeClass = {
+    xs: "size-9 sm:size-10",
+    md: "size-9 sm:size-10",
+    lg: "size-9 sm:size-10",
+    xl: "size-12 sm:size-12"
+  }[avatarSize]
+
   return (<div className={`width-full rounded-md ${bare ? "" : "bg-white"}`}>
     {picture && (
       <div
@@ -32,7 +40,7 @@ const Card = ({ picture = "", title = "", titleHref = "", avatar, menu = false, 
     )}
     <Box bare={bare}>
       <div className="flex">
-        {avatar ? <Image src={avatar} width="64" height="64" className="size-9 sm:size-10 mr-2 mb-1 p-0 rounded-full object-cover" alt="" /> : <UserIcon className="w-11 mr-2 mb-1 p-1 rounded-full bg-slate-200 text-white" />}
+        {avatar ? <Image src={avatar} width="128" height="128" className={`${avatarSizeClass} mr-2 mb-1 p-0 rounded-full object-cover`} alt="" /> : <UserIcon className="w-11 mr-2 mb-1 p-1 rounded-full bg-slate-200 text-white" />}
         <div className="text-sm w-full mt-0 sm:mt-1 flex flex-col">
           <p className="text-gray-900">
             {titleHref ? <Link href={titleHref}>{title}</Link> : title}

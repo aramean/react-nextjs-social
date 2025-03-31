@@ -22,8 +22,9 @@ export function useLogout(): UseLogoutResult {
       await account.deleteSession("current")
       router.push("/")
     } catch (err) {
-      setIsLoading(false)
       setError(exception(err))
+    } finally {
+      setIsLoading(false)
     }
   }
 

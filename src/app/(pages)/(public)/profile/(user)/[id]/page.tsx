@@ -18,9 +18,9 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
     <div className="bg-slate-300 h-60">
       <div className="max-w-7xl m-auto">
         <Card
-          title="User"
+          avatarSize="xl"
           titleHref=""
-          text="test"
+          lock={false}
           bare={true}
         />
       </div></div>
