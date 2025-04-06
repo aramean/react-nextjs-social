@@ -19,8 +19,8 @@ const Avatar = ({ avatar, size = "md" }: AvatarProps) => {
     xs: "p-0",
     md: "p-1",
     lg: "p-2",
-    xl: "p-2",
-    xxl: "p-3"
+    xl: "p-3",
+    xxl: "p-4"
   }[size]
 
   return avatar ? (
