@@ -13,6 +13,7 @@ interface CardProps {
   titleHref?: string
   avatar?: string | null
   avatarSize?: "xs" | "md" | "lg" | "xl" | "xxl"
+  avatarResponsive?: string
   menu?: boolean
   text?: string
   lock?: boolean
@@ -22,7 +23,7 @@ interface CardProps {
   createdAt?: string
 }
 
-const Card = ({ picture = "", title = "", titleHref = "", avatar, avatarSize = "md", menu = false, text = "", lock = true, hr, controls = false, bare = false, createdAt }: CardProps) => {
+const Card = ({ picture = "", title = "", titleHref = "", avatar, avatarSize = "md", avatarResponsive = "", menu = false, text = "", lock = true, hr, controls = false, bare = false, createdAt }: CardProps) => {
   return (<div className={`width-full rounded-md ${bare ? "" : "bg-white"}`}>
     {picture && (
       <div
@@ -33,7 +34,7 @@ const Card = ({ picture = "", title = "", titleHref = "", avatar, avatarSize = "
     )}
     <Box bare={bare}>
       <div className="flex flex-row flex-shrink-0">
-        <Avatar avatar={avatar} size={avatarSize} />
+        <Avatar avatar={avatar} size={avatarSize} responsive={avatarResponsive} />
         <div className="text-sm w-full mt-0 sm:mt-1 flex flex-col">
           <p className="text-gray-900">
             {titleHref ? <Link href={titleHref}>{title}</Link> : title}

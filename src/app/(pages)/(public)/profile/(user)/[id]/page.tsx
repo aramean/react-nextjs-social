@@ -17,11 +17,12 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
   const { loadingProfile, dataProfile } = useProfile(id)
 
   return (<>
-    <div className="bg-slate-300 h-36 w-full relative">
+    <div className="bg-slate-300 h-32 sm:h-36 w-full static">
       <div className="max-w-7xl m-auto">
-        <div className="m-auto absolute top-12 ml-24">
+        <div className="m-auto absolute mt-4 ml-5 sm:mt-12 sm:ml-24">
           <Card
             avatarSize="xl"
+            avatarResponsive="sm:items-center size-24"
             titleHref=""
             lock={false}
             bare={true}

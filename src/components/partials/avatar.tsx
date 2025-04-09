@@ -4,9 +4,10 @@ import Image from "next/image"
 interface AvatarProps {
   avatar?: string | null
   size?: "xs" | "md" | "lg" | "xl" | "xxl"
+  responsive?: string
 }
 
-const Avatar = ({ avatar, size = "md" }: AvatarProps) => {
+const Avatar = ({ avatar, size = "md", responsive = "" }: AvatarProps) => {
   const avatarSizeClass = {
     xs: "size-9 sm:size-10",
     md: "size-9 sm:size-10",
@@ -28,12 +29,12 @@ const Avatar = ({ avatar, size = "md" }: AvatarProps) => {
       src={avatar}
       width="64"
       height="64"
-      className={`${avatarSizeClass} mr-2 p-0 rounded-full object-cover`}
+      className={`${avatarSizeClass} mr-2 p-0 rounded-full object-cover ${responsive}`}
       alt=""
     />
   ) : (
     <UserIcon
-      className={`${avatarSizeClass} ${iconClass} mr-2 rounded-full bg-slate-200 text-white flex-shrink-0`}
+      className={`${avatarSizeClass} ${iconClass} mr-2 rounded-full bg-slate-200 text-white flex-shrink-0 ${responsive}`}
     />
   )
 }
