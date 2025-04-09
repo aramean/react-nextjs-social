@@ -9,10 +9,10 @@ interface AvatarProps {
 
 const Avatar = ({ avatar, size = "md", responsive = "" }: AvatarProps) => {
   const avatarSizeClass = {
-    xs: "size-9 sm:size-10",
-    md: "size-9 sm:size-10",
-    lg: "size-9 sm:size-10",
-    xl: "size-32 sm:size-32",
+    xs: "size-9",
+    md: "size-9",
+    lg: "size-24",
+    xl: "size-32",
     xxl: "size-48"
   }[size]
 
