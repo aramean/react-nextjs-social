@@ -1,6 +1,6 @@
 "use client"
 
-import { UserIcon } from "@heroicons/react/24/solid"
+import { UserIcon as Icon } from "@heroicons/react/24/solid"
 
 interface IconUserProps {
   size?: string
@@ -8,7 +8,7 @@ interface IconUserProps {
 }
 
 const IconUser = ({ size = "80%", color = "#000" }: IconUserProps) => {
-  return (<UserIcon color={color} width={size} />)
+  return (<Icon color={color} width={size} />)
 }
 
 export default IconUser

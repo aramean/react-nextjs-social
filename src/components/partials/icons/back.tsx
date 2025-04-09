@@ -1,6 +1,6 @@
 "use client"
 
-import { ArrowLeftIcon } from "@heroicons/react/16/solid"
+import { ArrowLeftIcon as Icon } from "@heroicons/react/16/solid"
 
 interface IconArrowLeftProps {
   size?: string
@@ -18,7 +18,7 @@ const IconBack = ({ size = "lg", color = "inherit" }: IconArrowLeftProps) => {
     xxl: "w-7"
   }[size]
 
-  return (<ArrowLeftIcon className={`flex content-[''] ${sizeClass} ${color}`} />)
+  return (<Icon className={`flex content-[''] ${sizeClass} ${color}`} />)
 }
 
 export default IconBack

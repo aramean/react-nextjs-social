@@ -1,6 +1,6 @@
 "use client"
 
-import { MagnifyingGlassIcon } from "@heroicons/react/16/solid"
+import { MagnifyingGlassIcon as Icon } from "@heroicons/react/16/solid"
 
 interface IconBackProps {
   size?: string
@@ -21,7 +21,7 @@ const IconMagnifyingGlass = ({ size = "lg", color = "inherit", position = false 
 
   const positionClass = position ? "absolute left-2.5 top-2.5" : ""
 
-  return (<MagnifyingGlassIcon className={`flex content-[''] ${sizeClass} ${color} ${positionClass}`} />)
+  return (<Icon className={`flex content-[''] ${sizeClass} ${color} ${positionClass}`} />)
 }
 
 export default IconMagnifyingGlass
