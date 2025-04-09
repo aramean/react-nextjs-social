@@ -13,6 +13,7 @@ interface CardProps {
   titleHref?: string
   avatar?: string | null
   avatarSize?: "xs" | "md" | "lg" | "xl" | "xxl"
+  avatarInfo?: string
   avatarResponsive?: string
   menu?: boolean
   text?: string
@@ -23,7 +24,7 @@ interface CardProps {
   createdAt?: string
 }
 
-const Card = ({ picture = "", title = "", titleHref = "", avatar, avatarSize = "md", avatarResponsive = "", menu = false, text = "", lock = true, hr, controls = false, bare = false, createdAt }: CardProps) => {
+const Card = ({ picture = "", title = "", titleHref = "", avatar, avatarInfo = "", avatarSize = "md", avatarResponsive = "", menu = false, text = "", lock = true, hr, controls = false, bare = false, createdAt }: CardProps) => {
   return (<div className={`width-full rounded-md ${bare ? "" : "bg-white"}`}>
     {picture && (
       <div
@@ -34,13 +35,13 @@ const Card = ({ picture = "", title = "", titleHref = "", avatar, avatarSize = "
     )}
     <Box bare={bare}>
       <div className="flex flex-row flex-shrink-0">
-        <Avatar avatar={avatar} size={avatarSize} responsive={avatarResponsive} />
-        <div className="text-sm w-full mt-0 sm:mt-1 flex flex-col">
+        <Avatar avatar={avatar} info={avatarInfo} size={avatarSize} responsive={avatarResponsive} />
+        {title && <div className="text-sm w-full mt-0 sm:mt-1 flex flex-col">
           <p className="text-gray-900">
             {titleHref ? <Link href={titleHref}>{title}</Link> : title}
           </p>
           <p className="text-gray-600 text-xs">{createdAt}{lock && <> • <LockClosedIcon className="mr-1 w-3 inline-flex" /></>}</p>
-        </div>
+        </div>}
         {menu && <p className="text-sm text-gray-600 flex place-items-start">
           <EllipsisHorizontalIcon className="w-5" />
         </p>}

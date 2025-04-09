@@ -36,14 +36,13 @@ export function useProfile(userId: string): ProfileProps {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await databases.getDocument(
+        const data = await databases.getDocument(
           DATABASE,
           COLLECTION_PROFILE,
           userId
         )
 
         const avatarMap = await fetchAvatars([userId])
-        const data = response
         const profileItem = data ? {
           firstName: data.firstName || "",
           middleName: data.middleName || "",

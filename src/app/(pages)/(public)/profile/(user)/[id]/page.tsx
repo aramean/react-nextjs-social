@@ -15,15 +15,17 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params)
   const { loading, data } = useFeed(id)
   const { loadingProfile, dataProfile } = useProfile(id)
+  const fullName = [dataProfile?.firstName, dataProfile?.middleName, dataProfile?.lastName].filter(Boolean).join(" ")
 
   return (<>
-    <div className="bg-slate-300 h-32 sm:h-36 w-full static">
+    <div className="bg-slate-100 h-32 sm:h-36 w-full static border-b border-gray-200 shadow-sm">
       <div className="max-w-7xl m-auto">
         <div className="m-auto absolute mt-4 ml-5 sm:mt-12 sm:ml-24">
           <Card
             avatar={dataProfile?.picture}
             avatarSize="lg"
             avatarResponsive="sm:items-center sm:size-32"
+            avatarInfo={fullName}
             titleHref=""
             lock={false}
             bare={true}
