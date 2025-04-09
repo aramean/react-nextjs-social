@@ -29,12 +29,12 @@ const Avatar = ({ avatar, size = "md", responsive = "" }: AvatarProps) => {
       src={avatar}
       width="64"
       height="64"
-      className={`${avatarSizeClass} mr-2 p-0 rounded-full object-cover ${responsive}`}
+      className={`${avatarSizeClass} mr-2 p-0 rounded-full object-cover ${responsive} border-solid border-2 border-white`}
       alt=""
     />
   ) : (
     <UserIcon
-      className={`${avatarSizeClass} ${iconClass} mr-2 rounded-full bg-slate-200 text-white flex-shrink-0 ${responsive}`}
+      className={`${avatarSizeClass} ${iconClass} mr-2 rounded-full bg-slate-200 text-white flex-shrink-0 ${responsive} border-2 border-white`}
     />
   )
 }
