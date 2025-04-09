@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { databases } from "@/lib/appwrite"
 import { DATABASE, COLLECTION_PROFILE } from "@constants"
+import { fetchAvatars } from "@/utils/bucket"
 
 interface ProfileItem {
   firstName: string
@@ -10,6 +11,7 @@ interface ProfileItem {
   lastName: string
   sex: string
   created: string
+  picture: string
 }
 
 interface ProfileProps {
@@ -32,11 +34,6 @@ export function useProfile(userId: string): ProfileProps {
   const [lastName, setLastName] = useState<string>("")
 
   useEffect(() => {
-    if (!userId) {
-      setLoadingProfile(false)
-      return
-    }
-
     const fetchData = async () => {
       try {
         const response = await databases.getDocument(
@@ -45,23 +42,24 @@ export function useProfile(userId: string): ProfileProps {
           userId
         )
 
+        const avatarMap = await fetchAvatars([userId])
         const data = response
         const profileItem = data ? {
           firstName: data.firstName || "",
           middleName: data.middleName || "",
           lastName: data.lastName || "",
           sex: data.sex,
-          created: data.$createdAt
+          created: data.$createdAt,
+          picture: avatarMap[userId] || ""
         } : undefined
 
-        setDataProfile(profileItem)
-
-        // Update the state for first name, middle name, and last name
         if (profileItem) {
+          setDataProfile(profileItem)
           setFirstName(profileItem.firstName)
           setMiddleName(profileItem.middleName)
           setLastName(profileItem.lastName)
         }
+
       } catch (error) {
         console.error("Error fetching profile:", error)
       } finally {

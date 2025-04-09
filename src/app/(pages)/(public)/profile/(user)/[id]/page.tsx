@@ -21,6 +21,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
       <div className="max-w-7xl m-auto">
         <div className="m-auto absolute mt-4 ml-5 sm:mt-12 sm:ml-24">
           <Card
+            avatar={dataProfile?.picture}
             avatarSize="xl"
             avatarResponsive="sm:items-center size-24"
             titleHref=""
