@@ -19,7 +19,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
       <HeaderSearch />
       <HeaderStatus />
     </header>
-    <main className="bg-zinc-50 py-16 sm:py-16">
+    <main className="flex flex-col bg-zinc-50 py-16 sm:py-16 h-screen">
       {children}
     </main>
   </>)

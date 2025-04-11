@@ -18,9 +18,9 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
   const fullName = [dataProfile?.firstName, dataProfile?.middleName, dataProfile?.lastName].filter(Boolean).join(" ")
 
   return (<>
-    <div className="bg-slate-100 h-32 sm:h-36 w-full static border-b border-gray-200 shadow-sm">
-      <div className="max-w-7xl m-auto">
-        <div className="m-auto absolute mt-4 ml-5 sm:mt-12 sm:ml-24">
+    <div className="static bg-slate-100 h-32 sm:h-36 w-full border-b border-gray-200 shadow-sm">
+      <div className="flex flex-col max-w-screen-xl m-auto">
+        <div className="absolute m-auto mt-4 ml-5 sm:mt-12 sm:ml-24">
           <Card
             avatar={dataProfile?.picture}
             avatarSize="lg"
@@ -33,9 +33,9 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
         </div>
       </div>
     </div>
-    <div className="max-w-7xl m-auto mt-5">
+    <div className="flex flex-col w-full max-w-screen-xl m-auto mt-5">
       <div className="flex">
-        <div className="w-1/4 p-3 hidden md:block">
+        <div className="hidden md:block w-1/4 p-3">
           {loadingProfile && <PostSkeleton />}
           <Box>
             <ul>
@@ -46,7 +46,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
           </Box>
         </div>
 
-        <div className="w-full md:w-2/4 p-3">
+        <div className="flex flex-col w-full h-full md:w-2/4 p-3">
           {data.length > 0 ? (
             <>
               {loading && <PostSkeleton repeat={5} />}

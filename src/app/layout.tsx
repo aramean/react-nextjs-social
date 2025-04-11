@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body className="bg-slate-50">
+      <body className="bg-slate-50 h-screen">
         {children}
       </body>
     </html>

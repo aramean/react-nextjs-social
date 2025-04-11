@@ -19,7 +19,7 @@ export default function Layout({ children }: LayoutProps) {
       <HeaderStatus />
     </header>
     <main className="bg-zinc-50 py-8 sm:py-14">
-      <div className="max-w-7xl m-auto mt-5">{children}</div>
+      <div className="max-w-screen-xl m-auto mt-5">{children}</div>
     </main>
   </>)
 }
